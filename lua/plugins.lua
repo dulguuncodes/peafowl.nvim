@@ -20,7 +20,6 @@ return require("packer").startup(function()
 
     use {
         'kyazdani42/nvim-tree.lua',
-        opt = true,
         cmd = "NvimTreeToggle"
     }
 

@@ -96,11 +96,11 @@ local constants = {
     end},
 
     lsp_error_provider = 'DiagnosticError',
-    lsp_error_icon = " " .. symbols.lsp_error_symbol .. " ",
+    lsp_error_icon = "  " .. symbols.lsp_error_symbol,
     lsp_error_highlight = {colors.red, colors.bg},
 
     lsp_warnings_provider = 'DiagnosticWarn',
-    lsp_warnings_icon = " " .. symbols.lsp_warnings_symbol .. " ",
+    lsp_warnings_icon = "  " .. symbols.lsp_warnings_symbol,
     lsp_warnings_highlight = {colors.blue, colors.bg},
 
     left_space_provider = util.spacing,
