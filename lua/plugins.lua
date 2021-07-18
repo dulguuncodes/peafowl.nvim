@@ -58,6 +58,9 @@ return require("packer").startup(function()
     use 'airblade/vim-gitgutter'
     use 'tpope/vim-fugitive'
 
+		use 'jiangmiao/auto-pairs'
+		use 'machakann/vim-highlightedyank'
+
     use {
         "~/Code/dashboard-nvim",
         cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
@@ -71,7 +74,6 @@ return require("packer").startup(function()
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     }
 
-		use {'terrortylor/nvim-comment', config = function() require("comment")
- end}
+		use {'terrortylor/nvim-comment', config = function() require("comment") end}
 end)
 
