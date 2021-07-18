@@ -10,7 +10,6 @@
 
   "rpc.idleTimeout": 1800,
   "rpc.workspaceElapsedTime": true,
-  "rpc.detailsViewing": "Working on {workspace}. {problems} errors to fix",
   "coc.preferences.messageLevel": "error"
 }
 
