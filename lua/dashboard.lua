@@ -1,11 +1,26 @@
 local g = vim.g
 
 g.dashboard_disable_at_vimenter = 0
-g.dashboard_custom_header = {"            _/_", "          -'a\\", "            ||", "            |J",
-                             "            2_\\", "           /:::\\", "          |;ooo;|", "          /Oo@ o\\",
-                             "         '/o oOo\\`", "         /@ O o @\\", "        '/.o,()o,\\`",
-                             "        /().O O  o\\", "       / @ , @. () \\", "      /,o O' o O o, \\",
-                             "   _-'. 'o _o _O_o-o.`-_", "   `\"\"\"---......---\"\"\"`"}
+
+g.dashboard_custom_header = {
+	"            _/_",
+	"          -'a\\",
+	"            ||",
+	"            |J",
+  "            2_\\",
+	"           /:::\\",
+	"          |;ooo;|",
+	"          /Oo@ o\\",
+  "         '/o oOo\\`",
+	"         /@ O o @\\",
+	"        '/.o,()o,\\`",
+  "        /().O O  o\\",
+	"       / @ , @. () \\",
+	"      /,o O' o O o, \\",
+  "   _-'. 'o _o _O_o-o.`-_",
+	"   `\"\"\"---......---\"\"\"`"
+}
+
 g.dashboard_disable_statusline = 0
 
 g.dashboard_custom_section = {
