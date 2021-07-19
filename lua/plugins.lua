@@ -63,21 +63,21 @@ return require("packer").startup(function()
     use 'jiangmiao/auto-pairs'
     use 'machakann/vim-highlightedyank'
 
-    -- use {
-    --     'dulguuncodes/dashboard-nvim',
-    --     cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
-    --     setup = function()
-    --         require("dashboard")
-    --     end
-    -- }
-
     use {
-        "~/Code/dashboard-nvim",
+        'dulguuncodes/dashboard-nvim',
         cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
         setup = function()
-          require("dashboard")
+            require("dashboard")
         end
     }
+
+    -- use {
+    --     "~/Code/dashboard-nvim",
+    --     cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
+    --     setup = function()
+    --       require("dashboard")
+    --     end
+    -- }
 
     use {
         'nvim-telescope/telescope.nvim',
