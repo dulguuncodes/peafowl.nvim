@@ -167,10 +167,10 @@ local constants = {
         return " " .. symbols.ln .. " "
     end,
     right_cursor_icon_condition = function()
-			  local width = vim.fn.winwidth(0)/ 2
-				if width < 35 then
-					return false
-				end
+        local width = vim.fn.winwidth(0) / 2
+        if width < 35 then
+            return false
+        end
         return not util.checkwidth()
     end,
     right_cursor_icon_highlight = {colors.green, colors.black},
@@ -199,10 +199,10 @@ local constants = {
         return line_row .. ':' .. line_column .. ' '
     end,
     right_cursor_position_condition = function()
-			  local width = vim.fn.winwidth(0)/ 2
-				if width < 35 then
-					return false
-				end
+        local width = vim.fn.winwidth(0) / 2
+        if width < 35 then
+            return false
+        end
         return not util.checkwidth()
     end,
     right_cursor_position_highlight = {colors.white, colors.black},
@@ -236,8 +236,8 @@ local constants = {
     end,
     workspace_highlight = {colors.white, colors.black},
     workspace_condition = util.checkwidth,
-		workspace_separator = symbols.left_arrow,
-		workspace_separator_highlight = {colors.black, colors.bg},
+    workspace_separator = symbols.left_arrow,
+    workspace_separator_highlight = {colors.black, colors.bg},
 
     operating_system_provider = function()
         return " " .. symbols.linux_logo .. " linux "
