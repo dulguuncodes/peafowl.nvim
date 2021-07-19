@@ -1,4 +1,4 @@
-local colors = require("statusline.colors")
+local colors = require("colors")
 
 local buffer_not_empty = function()
     if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then

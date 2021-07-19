@@ -1,4 +1,4 @@
-local colors = require("statusline.colors")
+local colors = require("colors")
 local util = require("statusline.utilities")
 local vcs = require('galaxyline.provider_vcs')
 local constants = require("statusline.constants")

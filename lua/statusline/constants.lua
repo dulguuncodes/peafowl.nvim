@@ -3,7 +3,7 @@ local vcs = require('galaxyline.provider_vcs')
 
 local symbols = require("statusline.symbols")
 local util = require("statusline.utilities")
-local colors = require("statusline.colors")
+local colors = require("colors")
 
 local constants = {
     empty_buffer_separator = symbols.generic_separator,

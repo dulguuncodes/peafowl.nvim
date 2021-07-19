@@ -1,3 +1,4 @@
+local colors = require("colors")
 local cmd = vim.cmd
 
 local hi = function(settings, fg, bg)
@@ -6,15 +7,15 @@ local hi = function(settings, fg, bg)
     end
 end
 
-hi({'BufferVisible', 'BufferVisibleSign', 'BufferVisibleMod'}, '#e2e2e3', '#2F383E')
-hi({'BufferInactive', 'BufferInactiveSign'}, '#737373', '#2F383E')
+hi({'BufferVisible', 'BufferVisibleSign', 'BufferVisibleMod'}, colors.visible_buffer, colors.buffer_bg)
+hi({'BufferInactive', 'BufferInactiveSign'}, colors.inactive_buffer, colors.buffer_bg)
 
-hi({'CocWarningSign'}, '#CBB07A', '#2b3339')
-hi({'SignColumn'}, '#d3c6aa', '#2B3339')
+hi({'CocWarningSign'}, colors.coc_warning, colors.bg)
+hi({'SignColumn'}, colors.sign_column_fg, colors.bg)
 
-hi({'CocInfoSign', 'GitGutterAdd', 'GitSignsAdd'}, '#6fa19b', '#2b3339')
-hi({'CocErrorSign', 'GitGutterDelete', 'GitSignsDelete'}, '#e17d8f', '#2b3339')
-hi({'GitGutterChange', 'GitSignsChange'}, '#a3be8c', '#2b3339')
+hi({'CocInfoSign', 'GitGutterAdd', 'GitSignsAdd'}, colors.git_add, colors.bg)
+hi({'CocErrorSign', 'GitGutterDelete', 'GitSignsDelete'}, colors.git_del, colors.bg)
+hi({'GitGutterChange', 'GitSignsChange'}, colors.git_mod, colors.bg)
 
-hi({'Statusline', 'StatuslineNC'}, '#2B3339', '#2B3339')
+hi({'Statusline', 'StatuslineNC'}, colors.bg, colors.bg)
 
