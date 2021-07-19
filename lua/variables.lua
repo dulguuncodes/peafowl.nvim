@@ -33,7 +33,7 @@ g.nvim_tree_show_icons = {
 }
 
 -- remove this to get rid of branding
-g.peafowl_branding = 0
+g.peafowl_branding = 1
 
 opt.expandtab = true
 opt.shiftwidth = 2
