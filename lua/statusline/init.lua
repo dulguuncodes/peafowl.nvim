@@ -9,7 +9,9 @@ gl.section.left = {components.LeftSpace, components.LeftPadding, components.Logo
                    components.DiffAdd, components.DiffModified, components.DiffRemoved, components.LeftLineEnding,
                    components.LSPError, components.LSPWarnings}
 
-gl.section.mid = {components.Branding}
+if vim.g.peafowl_branding == 1 then
+	gl.section.mid = {components.Branding}
+end
 
 gl.section.right = {components.Workspace, components.ViMode, components.RightCursorIcon,
                     components.RightCursorPosition, components.LinePercentage, components.OperatingSystem,

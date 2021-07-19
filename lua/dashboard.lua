@@ -1,8 +1,9 @@
+local symbols = require("statusline.symbols")
 local g = vim.g
 
 g.dashboard_disable_at_vimenter = 0
 
-g.dashboard_custom_header = {
+custom_header = {
   "            _/_",
   "          -'a\\",
   "            ||",
@@ -18,8 +19,15 @@ g.dashboard_custom_header = {
   "       / @ , @. () \\",
   "      /,o O' o O o, \\",
   "   _-'. 'o _o _O_o-o.`-_",
-  "   `\"\"\"---......---\"\"\"`"
+  "   `\"\"\"---......---\"\"\"`",
+	"                             ",
 }
+
+if g.peafowl_branding == 1 then
+	custom_header[#custom_header+1] = "        " .. symbols.peacock .. " peafowl           "
+end
+
+g.dashboard_custom_header = custom_header
 
 g.dashboard_disable_statusline = 0
 
@@ -36,16 +44,16 @@ g.dashboard_custom_section = {
         description = {"  Find Word                 SPC f w"},
         command = "Telescope live_grep"
     },
-    d = {
-        description = {"洛 New File                  SPC f n"},
-        command = "DashboardNewFile"
-    },
     e = {
-        description = {"  Open up NvimTree          SPC b m"},
+        description = {"  Open up NvimTree          SPC o n"},
         command = "NvimTreeToggle"
     },
-    f = {
-        description = {"  Load Last Session         SPC s l"},
-        command = "LoadSession"
+		f = {
+			  description = {"📚 Toggle Sessions           SPC t s"},
+				command = "Obsess"
+		},
+    g = {
+        description = {"  Load Last Session         SPC l s"},
+        command = "silent! source Session.vim"
     }
 }

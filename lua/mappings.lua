@@ -7,7 +7,7 @@ end
 Map({{
     type = 'n',
     key = '<Leader>t',
-    cmd = ':ToggleWorkspace<CR>',
+    cmd = ':Obsess<CR>',
     opts = {
         noremap = true,
         silent = true
@@ -15,7 +15,7 @@ Map({{
 }, {
     type = 't',
     key = '<Leader>t',
-    cmd = '<C-\\><C-n>:ToggleWorkspace<CR>',
+    cmd = '<C-\\><C-n>:Obsess<CR>',
     opts = {
         noremap = true,
         silent = true

@@ -14,15 +14,15 @@ g.indent_blankline_buftype_exclude = {"terminal"}
 g.dashboard_session_directory = os.getenv("HOME") .. "/.sessions" -- TODO: Refactor refactor refactor
 g.workspace_session_directory = os.getenv("HOME") .. "/.sessions/"
 
-g.workspace_autocreate = 1
 g.dashboard_disable_session_saving_at_vimleave = 1
 
-g.session_enable = false
+g.workspace_autocreate = 1
 g.workspace_session_disable_on_args = 1
 g.workspace_disable_on_vimenter = 1
+g.workspace_autosave = 1
 
 -- use this if you're debugging session loads
--- g.debug_sessions = 1
+g.debug_sessions = 1
 
 g.nvim_tree_git_hl = 0
 g.nvim_tree_gitignore = 0
@@ -31,6 +31,9 @@ g.nvim_tree_show_icons = {
     folders = 1,
     files = 1
 }
+
+-- remove this to get rid of branding
+g.peafowl_branding = 0
 
 opt.expandtab = true
 opt.shiftwidth = 2
