@@ -7,7 +7,7 @@ local colors = require("statusline.colors")
 
 local constants = {
     empty_buffer_separator = symbols.generic_separator,
-		empty_buffer_highlight = {colors.white, colors.fg},
+    empty_buffer_highlight = {colors.white, colors.fg},
     empty_buffer_provider = function()
         return ' /dev/null '
     end,
@@ -16,11 +16,13 @@ local constants = {
     end,
     empty_buffer_separator_highlight = {colors.white, colors.fg},
 
-		minified_meta_padding_provider = function() return ' ' end,
-		minified_meta_padding_condition = function()
-			return not util.checkwidth() and util.buffer_not_empty()
-		end,
-		minified_meta_padding_highlight = {colors.fg, colors.fg},
+    minified_meta_padding_provider = function()
+        return ' '
+    end,
+    minified_meta_padding_condition = function()
+        return not util.checkwidth() and util.buffer_not_empty()
+    end,
+    minified_meta_padding_highlight = {colors.fg, colors.fg},
 
     file_icon_provider = 'FileIcon',
     file_icon_condition = util.buffer_not_empty,
@@ -31,12 +33,12 @@ local constants = {
     file_name_highlight = {colors.white, colors.fg},
     file_name_separator = symbols.generic_separator .. " ",
     file_name_separator_highlight = {function()
-			if util.checkwidth() then
-				return colors.white
-			end
+        if util.checkwidth() then
+            return colors.white
+        end
 
-			return colors.fg
-		end, colors.fg},
+        return colors.fg
+    end, colors.fg},
 
     diff_add_provider = function()
         local diffs = vcs.diff_add()
@@ -164,7 +166,9 @@ local constants = {
     right_cursor_icon_provider = function()
         return " " .. symbols.ln .. " "
     end,
-    right_cursor_icon_condition = function() return not util.checkwidth() end,
+    right_cursor_icon_condition = function()
+        return not util.checkwidth()
+    end,
     right_cursor_icon_highlight = {colors.green, colors.fg},
     right_cursor_icon_separator = symbols.left_arrow_separator,
     right_cursor_icon_separator_highlight = {colors.white, colors.fg},
@@ -178,7 +182,7 @@ local constants = {
         return line_row .. ':' .. line_column .. ' '
     end,
     left_cursor_position_condition = util.checkwidth,
-		left_cursor_position_highlight = {colors.white, colors.fg},
+    left_cursor_position_highlight = {colors.white, colors.fg},
     left_cursor_position_separator = symbols.generic_separator,
     left_cursor_position_separator_highlight = {colors.white, colors.fg},
 
@@ -213,7 +217,7 @@ local constants = {
     logo_highlight = {colors.white, colors.darker_fg},
     logo_condition = util.checkwidth,
     logo_separator = symbols.left_upside_down_right_triangle,
-		logo_separator_highlight = {colors.darker_fg, colors.fg},
+    logo_separator_highlight = {colors.darker_fg, colors.fg},
 
     workspace_provider = function()
         local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
@@ -223,7 +227,7 @@ local constants = {
         return "  " .. symbols.folder .. " " .. dir_name .. " "
     end,
     workpace_highlight = {colors.lightfg, colors.bg},
-		workspace_condition = util.checkwidth,
+    workspace_condition = util.checkwidth,
 
     operating_system_provider = function()
         return " " .. symbols.linux_logo .. " linux "
@@ -261,8 +265,10 @@ local constants = {
     space_between_fname_and_cur_pos_highlight = {colors.fg, colors.fg},
     space_between_fname_and_cur_pos_condition = util.checkwidth,
 
-		left_line_ending_provider = function() return symbols.right_arrow end,
-		left_line_ending_highlight = {colors.fg, colors.bg},
+    left_line_ending_provider = function()
+        return symbols.right_arrow
+    end,
+    left_line_ending_highlight = {colors.fg, colors.bg}
 }
 
 return constants

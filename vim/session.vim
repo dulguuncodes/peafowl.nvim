@@ -8,4 +8,3 @@ function LoadSession()
 endfunction
 
 command! LoadSession call LoadSession()
-

@@ -29,8 +29,8 @@ g.nvim_tree_gitignore = 0
 g.nvim_tree_show_icons = {
     git = 0,
     folders = 1,
-    files = 1,
- }
+    files = 1
+}
 
 opt.expandtab = true
 opt.shiftwidth = 2

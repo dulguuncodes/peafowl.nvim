@@ -41,7 +41,7 @@ local diff_add = {
 
 local diff_modified = {
     provider = constants.diff_modified_provider,
-		condition = constants.diff_modified_condition,
+    condition = constants.diff_modified_condition,
     icon = constants.diff_modified_icon,
     highlight = constants.diff_modified_highlight
 }
@@ -135,7 +135,7 @@ local logo = {
 local workspace = {
     provider = constants.workspace_provider,
     highlight = constants.workspace_highlight,
-		condition = constants.workspace_condition
+    condition = constants.workspace_condition
 }
 
 local operating_system = {
@@ -165,58 +165,115 @@ local space_between_fname_and_cur_pos = {
 }
 
 local left_line_ending = {
-	provider = constants.left_line_ending_provider,
-	highlight = constants.left_line_ending_highlight,
+    provider = constants.left_line_ending_provider,
+    highlight = constants.left_line_ending_highlight
 }
 
 local minified_meta_padding = {
-	provider = constants.minified_meta_padding_provider,
-	highlight = constants.minified_meta_padding_highlight,
-	conition = constants.minified_meta_padding_condition
+    provider = constants.minified_meta_padding_provider,
+    highlight = constants.minified_meta_padding_highlight,
+    conition = constants.minified_meta_padding_condition
 }
 
 local components = {
-    LeftPadding = { LeftPadding = left_padding },
+    LeftPadding = {
+        LeftPadding = left_padding
+    },
 
-    LeftSpace = { LeftSpace = left_space },
-    LeftLineEnding = { LeftLineEnding = left_line_ending },
-    StartPadding = { StartPadding = start_padding },
+    LeftSpace = {
+        LeftSpace = left_space
+    },
+    LeftLineEnding = {
+        LeftLineEnding = left_line_ending
+    },
+    StartPadding = {
+        StartPadding = start_padding
+    },
 
-    EmptyBuffer = { EmptyBuffer = empty_buffer },
-		MinifiedMetaPadding = { MinifiedMetaPadding = minified_meta_padding },
-    FileIcon = { FileIcon = file_icon },
-    FileName = { FileName = file_name },
+    EmptyBuffer = {
+        EmptyBuffer = empty_buffer
+    },
+    MinifiedMetaPadding = {
+        MinifiedMetaPadding = minified_meta_padding
+    },
+    FileIcon = {
+        FileIcon = file_icon
+    },
+    FileName = {
+        FileName = file_name
+    },
 
-    DiffAdd = { DiffAdd = diff_add },
-    DiffModified = { DiffModified = diff_modified },
-    DiffRemoved = { DiffRemoved = diff_removed },
+    DiffAdd = {
+        DiffAdd = diff_add
+    },
+    DiffModified = {
+        DiffModified = diff_modified
+    },
+    DiffRemoved = {
+        DiffRemoved = diff_removed
+    },
 
-    LSPError = { LSPError = lsp_error },
-    LSPWarnings = { LSPWarnings = lsp_warnings },
+    LSPError = {
+        LSPError = lsp_error
+    },
+    LSPWarnings = {
+        LSPWarnings = lsp_warnings
+    },
 
-    Space = { Space = space },
-    SpaceFg = { SpaceFg = space_fg },
-    SpaceFg2 = { SpaceFg2 = space_fg2 },
-    SpaceFg3 = { SpaceFg3 = space_fg3 },
-    SpaceInBetweenFnameAndCur = { SpaceInBetweenFnameAndCur = space_between_fname_and_cur_pos },
+    Space = {
+        Space = space
+    },
+    SpaceFg = {
+        SpaceFg = space_fg
+    },
+    SpaceFg2 = {
+        SpaceFg2 = space_fg2
+    },
+    SpaceFg3 = {
+        SpaceFg3 = space_fg3
+    },
+    SpaceInBetweenFnameAndCur = {
+        SpaceInBetweenFnameAndCur = space_between_fname_and_cur_pos
+    },
 
-    LinePercentage = { LinePercentage = line_percentage },
+    LinePercentage = {
+        LinePercentage = line_percentage
+    },
 
-    LeftCursorIcon = { LeftCursorIcon = left_cursor_icon },
-    RightCursorIcon = { RightCursorIcon = right_cursor_icon },
+    LeftCursorIcon = {
+        LeftCursorIcon = left_cursor_icon
+    },
+    RightCursorIcon = {
+        RightCursorIcon = right_cursor_icon
+    },
 
-    LeftCursorPosition = { LeftCursorPosition = left_cursor_position },
-    RightCursorPosition = { RightCursorPosition = right_cursor_position },
+    LeftCursorPosition = {
+        LeftCursorPosition = left_cursor_position
+    },
+    RightCursorPosition = {
+        RightCursorPosition = right_cursor_position
+    },
 
-    Branding = { Branding = branding },
+    Branding = {
+        Branding = branding
+    },
 
-    Logo = { Logo = logo },
-    Workspace = { Workspace = workspace },
-    OperatingSystem = { OperatingSystem = operating_system },
-    ViMode = { ViMode = vi_mode },
+    Logo = {
+        Logo = logo
+    },
+    Workspace = {
+        Workspace = workspace
+    },
+    OperatingSystem = {
+        OperatingSystem = operating_system
+    },
+    ViMode = {
+        ViMode = vi_mode
+    },
 
-    RightPadding = { RightPadding = right_padding }
+    RightPadding = {
+        RightPadding = right_padding
+    }
 }
 
 return components
-
