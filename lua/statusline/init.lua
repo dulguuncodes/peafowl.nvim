@@ -11,7 +11,7 @@ gl.section.left = {components.LeftSpace, components.LeftPadding, components.Logo
 
 gl.section.mid = {components.Branding}
 
-gl.section.right = {components.Workspace, components.Space, components.ViMode, components.RightCursorIcon,
+gl.section.right = {components.Workspace, components.ViMode, components.RightCursorIcon,
                     components.RightCursorPosition, components.LinePercentage, components.OperatingSystem,
                     components.RightPadding}
 

@@ -7,7 +7,7 @@ local fileinfo = require('galaxyline.provider_fileinfo')
 
 local start_padding = {
     provider = util.spacing,
-    highlight = {colors.fg, colors.fg}
+    highlight = {colors.black, colors.black}
 }
 
 local empty_buffer = {
@@ -135,7 +135,8 @@ local logo = {
 local workspace = {
     provider = constants.workspace_provider,
     highlight = constants.workspace_highlight,
-    condition = constants.workspace_condition
+		separator = constants.workspace_separator,
+		separator_highlight = constants.workspace_separator_highlight
 }
 
 local operating_system = {

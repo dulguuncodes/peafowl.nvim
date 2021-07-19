@@ -7,14 +7,14 @@ local colors = require("statusline.colors")
 
 local constants = {
     empty_buffer_separator = symbols.generic_separator,
-    empty_buffer_highlight = {colors.white, colors.fg},
+    empty_buffer_highlight = {colors.white, colors.black},
     empty_buffer_provider = function()
         return ' /dev/null '
     end,
     empty_buffer_condition = function()
         return not util.buffer_not_empty()
     end,
-    empty_buffer_separator_highlight = {colors.white, colors.fg},
+    empty_buffer_separator_highlight = {colors.white, colors.black},
 
     minified_meta_padding_provider = function()
         return ' '
@@ -22,23 +22,23 @@ local constants = {
     minified_meta_padding_condition = function()
         return not util.checkwidth() and util.buffer_not_empty()
     end,
-    minified_meta_padding_highlight = {colors.fg, colors.fg},
+    minified_meta_padding_highlight = {colors.black, colors.black},
 
     file_icon_provider = 'FileIcon',
     file_icon_condition = util.buffer_not_empty,
-    file_icon_highlight = {fileinfo.get_file_icon_color, colors.fg},
+    file_icon_highlight = {fileinfo.get_file_icon_color, colors.black},
 
     file_name_provider = {'FileName', 'FileSize'},
     file_name_condition = util.buffer_not_empty,
-    file_name_highlight = {colors.white, colors.fg},
+    file_name_highlight = {colors.white, colors.black},
     file_name_separator = symbols.generic_separator .. " ",
     file_name_separator_highlight = {function()
         if util.checkwidth() then
             return colors.white
         end
 
-        return colors.fg
-    end, colors.fg},
+        return colors.black
+    end, colors.black},
 
     diff_add_provider = function()
         local diffs = vcs.diff_add()
@@ -53,7 +53,7 @@ local constants = {
     diff_add_icon = symbols.diff_add_symbol,
     diff_add_highlight = {colors.cyan, function()
         if util.checkwidth() then
-            return colors.fg
+            return colors.black
         end
 
         return colors.bg
@@ -72,7 +72,7 @@ local constants = {
     diff_modified_icon = symbols.diff_mod_symbol,
     diff_modified_highlight = {colors.green, function()
         if util.checkwidth() then
-            return colors.fg
+            return colors.black
         end
 
         return colors.bg
@@ -91,7 +91,7 @@ local constants = {
     diff_removed_icon = symbols.diff_removed_symbol,
     diff_removed_highlight = {colors.red, function()
         if util.checkwidth() then
-            return colors.fg
+            return colors.black
         end
 
         return colors.bg
@@ -137,9 +137,9 @@ local constants = {
         end
     end,
 
-    vi_mode_highlight = {colors.white, colors.fg},
-    vi_mode_separator = symbols.left_arrow,
-    vi_mode_separator_highlight = {colors.fg, colors.bg},
+    vi_mode_highlight = {colors.white, colors.black},
+    vi_mode_separator = symbols.generic_separator,
+    vi_mode_separator_highlight = {colors.white, colors.black},
 
     line_percentage_provider = function()
         local current_line = vim.fn.line(".")
@@ -154,24 +154,28 @@ local constants = {
         return " " .. result .. "% "
     end,
     line_percentage_separator = symbols.left_arrow_separator,
-    line_percentage_separator_highlight = {colors.white, colors.fg},
-    line_percentage_highlight = {colors.white, colors.fg},
+    line_percentage_separator_highlight = {colors.white, colors.black},
+    line_percentage_highlight = {colors.white, colors.black},
 
     left_cursor_icon_provider = function()
         return symbols.ln .. " "
     end,
     left_cursor_icon_condition = util.checkwidth,
-    left_cursor_icon_highlight = {colors.green, colors.fg},
+    left_cursor_icon_highlight = {colors.green, colors.black},
 
     right_cursor_icon_provider = function()
         return " " .. symbols.ln .. " "
     end,
     right_cursor_icon_condition = function()
+			  local width = vim.fn.winwidth(0)/ 2
+				if width < 35 then
+					return false
+				end
         return not util.checkwidth()
     end,
-    right_cursor_icon_highlight = {colors.green, colors.fg},
+    right_cursor_icon_highlight = {colors.green, colors.black},
     right_cursor_icon_separator = symbols.left_arrow_separator,
-    right_cursor_icon_separator_highlight = {colors.white, colors.fg},
+    right_cursor_icon_separator_highlight = {colors.white, colors.black},
 
     left_cursor_position_provider = function()
         local line_stat = util.split(fileinfo.line_column(), " :")
@@ -182,9 +186,9 @@ local constants = {
         return line_row .. ':' .. line_column .. ' '
     end,
     left_cursor_position_condition = util.checkwidth,
-    left_cursor_position_highlight = {colors.white, colors.fg},
+    left_cursor_position_highlight = {colors.white, colors.black},
     left_cursor_position_separator = symbols.generic_separator,
-    left_cursor_position_separator_highlight = {colors.white, colors.fg},
+    left_cursor_position_separator_highlight = {colors.white, colors.black},
 
     right_cursor_position_provider = function()
         local line_stat = util.split(fileinfo.line_column(), " :")
@@ -195,9 +199,13 @@ local constants = {
         return line_row .. ':' .. line_column .. ' '
     end,
     right_cursor_position_condition = function()
+			  local width = vim.fn.winwidth(0)/ 2
+				if width < 35 then
+					return false
+				end
         return not util.checkwidth()
     end,
-    right_cursor_position_highlight = {colors.white, colors.fg},
+    right_cursor_position_highlight = {colors.white, colors.black},
 
     branding_provider = function()
         return symbols.peacock .. " peafowl"
@@ -209,38 +217,40 @@ local constants = {
         end
         return false
     end,
-    branding_highlight = {colors.lightfg, colors.bg},
+    branding_highlight = {colors.fg, colors.bg},
 
     logo_provider = function()
         return "  " .. symbols.laptop .. " "
     end,
-    logo_highlight = {colors.white, colors.darker_fg},
+    logo_highlight = {colors.black, colors.green},
     logo_condition = util.checkwidth,
     logo_separator = symbols.left_upside_down_right_triangle,
-    logo_separator_highlight = {colors.darker_fg, colors.fg},
+    logo_separator_highlight = {colors.green, colors.black},
 
     workspace_provider = function()
         local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
         if dir_name:len() > 14 then
-            return "  " .. symbols.folder .. " " .. dir_name:sub(0, 12) .. '... '
+            return ' ' .. symbols.folder .. " " .. dir_name:sub(0, 12) .. '... '
         end
-        return "  " .. symbols.folder .. " " .. dir_name .. " "
+        return ' ' .. symbols.folder .. " " .. dir_name .. " "
     end,
-    workpace_highlight = {colors.lightfg, colors.bg},
+    workspace_highlight = {colors.white, colors.black},
     workspace_condition = util.checkwidth,
+		workspace_separator = symbols.left_arrow,
+		workspace_separator_highlight = {colors.black, colors.bg},
 
     operating_system_provider = function()
         return " " .. symbols.linux_logo .. " linux "
     end,
     operating_system_condition = util.checkwidth,
-    operating_system_highlight = {colors.black, colors.green},
+    operating_system_highlight = {colors.black, colors.cyan},
     operating_system_separator = symbols.right_upside_down_right_triangle,
-    operating_system_separator_highlight = {colors.green, colors.fg},
+    operating_system_separator_highlight = {colors.cyan, colors.black},
 
     left_padding_provider = function()
         return symbols.left_semicircle
     end,
-    left_padding_highlight = {colors.darker_fg, colors.bg},
+    left_padding_highlight = {colors.green, colors.bg},
     left_padding_condition = function()
         local squeeze_width = vim.fn.winwidth(0) / 2
         if squeeze_width > 60 then
@@ -252,7 +262,7 @@ local constants = {
     right_padding_provider = function()
         return symbols.right_semicircle .. " "
     end,
-    right_padding_highlight = {colors.green, colors.bg},
+    right_padding_highlight = {colors.cyan, colors.bg},
     right_padding_condition = function()
         local squeeze_width = vim.fn.winwidth(0) / 2
         if squeeze_width > 60 then
@@ -262,13 +272,13 @@ local constants = {
     end,
 
     space_between_fname_and_cur_pos_provider = util.spacing,
-    space_between_fname_and_cur_pos_highlight = {colors.fg, colors.fg},
+    space_between_fname_and_cur_pos_highlight = {colors.black, colors.black},
     space_between_fname_and_cur_pos_condition = util.checkwidth,
 
     left_line_ending_provider = function()
         return symbols.right_arrow
     end,
-    left_line_ending_highlight = {colors.fg, colors.bg}
+    left_line_ending_highlight = {colors.black, colors.bg}
 }
 
 return constants
