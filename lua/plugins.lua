@@ -4,6 +4,7 @@ local use_rock = packer.use_rocks
 
 -- Resolves issues where dashboard-nvim isn't initialized
 vim.cmd [[packadd dashboard-nvim]]
+vim.cmd [[packadd vim-workspace]]
 
 return require("packer").startup(function()
     use 'wbthomason/packer.nvim'
@@ -23,17 +24,12 @@ return require("packer").startup(function()
         cmd = "NvimTreeToggle"
     }
 
-    -- use {
-    --     '~/Code/nvim-tree.lua',
-    --     cmd = "NvimTreeToggle"
-    -- }
-
     use { 'nvim-treesitter/nvim-treesitter', config = function()
 		require("treesitter")
 	end}
 
     use {
-			  'neoclide/coc.nvim',
+				'neoclide/coc.nvim',
         branch = 'release'
     }
 
@@ -43,7 +39,7 @@ return require("packer").startup(function()
     use 'romgrk/barbar.nvim'
 
     -- use 'tpope/vim-obsession'
-		use { os.getenv("HOME") .. '/Code/vim-workspace', cmd = {"ToggleWorkspace", "ToggleAutosave"} }
+		use { os.getenv("HOME") .. '/Code/vim-workspace' }
 		-- use { 'dulguuncodes/vim-workspace', opt = true, cmd = {"ToggleWorkspace", "ToggleAutosave"} }
 
     use 'wesQ3/vim-windowswap'
@@ -67,21 +63,21 @@ return require("packer").startup(function()
 		use 'jiangmiao/auto-pairs'
 		use 'machakann/vim-highlightedyank'
 
-		--     use {
-		-- 	'dulguuncodes/dashboard-nvim',
-		-- 	cmd = { "Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave" },
-		-- 	setup = function()
-		-- 		require("dashboard")
-		-- 	end
-		-- }
+		use {
+			'dulguuncodes/dashboard-nvim',
+			cmd = { "Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave" },
+			setup = function()
+				require("dashboard")
+			end
+		}
 
-    use {
-        "~/Code/dashboard-nvim",
-        cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
-        setup = function()
-          require("dashboard")
-        end
-    }
+    -- use {
+    --     "~/Code/dashboard-nvim",
+    --     cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
+    --     setup = function()
+    --       require("dashboard")
+    --     end
+    -- }
 
     use {
         'nvim-telescope/telescope.nvim',
