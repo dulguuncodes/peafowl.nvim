@@ -6,4 +6,3 @@ require("statusline")
 require("misc")
 require("highlight")
 
-vim.cmd("source " .. os.getenv("HOME") .. "/.config/nvim/vim/session.vim")
