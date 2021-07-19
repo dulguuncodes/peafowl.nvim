@@ -14,6 +14,8 @@ g.indent_blankline_buftype_exclude = {"terminal"}
 g.dashboard_session_directory = os.getenv("HOME") .. "/.sessions" -- TODO: Refactor refactor refactor
 g.workspace_session_directory = os.getenv("HOME") .. "/.sessions/"
 
+g.workspace_autocreate = 1
+
 g.session_enable = false
 g.workspace_session_disable_on_args = 1
 g.workspace_disable_on_vimenter = 1

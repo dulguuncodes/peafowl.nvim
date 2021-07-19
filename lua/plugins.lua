@@ -3,7 +3,6 @@ local use = packer.use
 
 -- Resolves issues where dashboard-nvim isn't initialized
 vim.cmd [[packadd dashboard-nvim]]
-vim.cmd [[packadd vim-workspace]]
 
 return require("packer").startup(function()
     use 'wbthomason/packer.nvim'
@@ -38,7 +37,8 @@ return require("packer").startup(function()
     use 'romgrk/barbar.nvim'
 
     -- use 'tpope/vim-obsession'
-		use { '~/Code/vim-workspace', opt = true, cmd = {"ToggleWorkspace", "ToggleAutosave"} }
+		use { '~/Code/vim-workspace', cmd = {"ToggleWorkspace", "ToggleAutosave"} }
+		-- use { 'dulguuncodes/vim-workspace', opt = true, cmd = {"ToggleWorkspace", "ToggleAutosave"} }
 
     use 'wesQ3/vim-windowswap'
     use 'lukas-reineke/indent-blankline.nvim'
@@ -62,12 +62,20 @@ return require("packer").startup(function()
 		use 'machakann/vim-highlightedyank'
 
     use {
-        "~/Code/dashboard-nvim",
-        cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
-        setup = function()
-          require("dashboard")
-        end
-    }
+			'dulguuncodes/dashboard-nvim',
+			cmd = { "Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave" },
+			setup = function()
+				require("dashboard")
+			end
+		}
+
+    -- use {
+    --     "~/Code/dashboard-nvim",
+    --     cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
+    --     setup = function()
+    --       require("dashboard")
+    --     end
+    -- }
 
     use {
         'nvim-telescope/telescope.nvim',

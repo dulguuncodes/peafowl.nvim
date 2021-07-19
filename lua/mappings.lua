@@ -10,7 +10,7 @@ Map({{
     cmd = ':ToggleWorkspace<CR>',
     opts = {
         noremap = true,
-        silent = false
+        silent = true
     }
 }, {
     type = 't',
@@ -18,7 +18,7 @@ Map({{
     cmd = '<C-\\><C-n>:ToggleWorkspace<CR>',
     opts = {
         noremap = true,
-        silent = false
+        silent = true
     }
 }, {
     type = 'v',
