@@ -28,6 +28,8 @@ g.debug_sessions = 1
 g.peafowl_lua_lsp_location = '/usr/bin/lua-language-server'
 g.peafowl_lua_lsp_lib = '/usr/share/lua-language-server'
 
+g.peafowl_elixir_lsp_location = '/usr/bin/elixir-ls'
+
 g.nvim_tree_git_hl = 0
 g.nvim_tree_gitignore = 0
 g.nvim_tree_show_icons = {

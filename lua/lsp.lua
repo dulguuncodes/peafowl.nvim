@@ -1,6 +1,8 @@
 local lspconfig = require('lspconfig')
 local servers = vim.g.peafowl_lsp_list
 
+vim.lsp.set_log_level("debug")
+
 for _, lsp_name in ipairs(servers) do
 	local lsp = lspconfig[lsp_name]
 
@@ -21,6 +23,14 @@ for _, lsp_name in ipairs(servers) do
       telemetry = {
         enable = false,
       },
+		})
+
+		goto continue
+	end
+
+	if lsp_name == "elixirls" then
+		lsp.setup({
+			cmd = { vim.g.peafowl_elixir_lsp_location }
 		})
 
 		goto continue
