@@ -16,11 +16,13 @@ An elegant Neovim configuration focused on customizability and performance.
 
 - ❌ - Not Supported
 
+\*FTR means Further Testing Requires
+
 |        Language        |     Syntax Highlighting    | LSP support | Linting |
 | ---------------------- | :------------------------: | :---------: | :-----: |
 | Python                 |      ⏳ (WIP)              | ✅          | ✅      |
 | Go                     |      ✅                    | ✅          | ✅      |
-| Rust                   |      ❌                    | ❌          | ❌      |
+| Rust                   |      ✅                    | ⏳ (FTR*)   | ✅      |
 | Elixir                 |      ✅                    | ✅          | ✅      |
 | Typescript/Javascript  |      ✅                    | ✅          | ✅      |
 | React (jsx/tsx)        |      ✅                    | ✅          | ✅      |
@@ -31,5 +33,5 @@ An elegant Neovim configuration focused on customizability and performance.
 | YAML                   |      ✅                    | ❌          | ✅      |
 | Dockerfile             |      ✅                    | ❌          | ✅      |
 | Shell (fish/bash/zsh)  |      ✅                    | ❌          | ✅      |
-| GraphQL                |      ❌ (non-fiunctional)  | ❌          | ❌      |
+| GraphQL                |      ❌ (non-functional)   | ❌          | ❌      |
 
