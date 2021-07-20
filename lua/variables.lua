@@ -35,7 +35,17 @@ g.nvim_tree_show_icons = {
 -- remove this to get rid of branding
 g.peafowl_branding = 1
 
+g.peafowl_lsp_list = {'graphql', 'html', 'bashls', 'gopls', 'elixirls'}
+
+-- coc.nvim extensions
+g.coc_global_extensions = {'coc-prettier', 'coc-eslint', 'coc-discord-rpc', 'coc-tsserver', 'coc-markdownlint'}
+
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = true
+
+opt.mouse = "a"
+opt.number = true
+opt.encoding = "UTF-8"
+opt.termguicolors = true
 

@@ -88,6 +88,7 @@ _G.packer_plugins = {
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/opt/dashboard-nvim"
   },
   everforest = {
+    config = { "\27LJ\1\2X\0\0\2\0\5\0\b4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\3\0%\1\4\0>\0\2\1G\0\1\0\14highlight\frequire\27colorscheme everforest\bcmd\bvim\0" },
     loaded = true,
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/everforest"
   },
@@ -108,6 +109,10 @@ _G.packer_plugins = {
     config = { "\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\fcomment\frequire\0" },
     loaded = true,
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/nvim-comment"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     commands = { "NvimTreeToggle" },
@@ -156,13 +161,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/vim-highlightedyank"
   },
+  ["vim-obsession"] = {
+    loaded = true,
+    path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/vim-obsession"
+  },
   ["vim-windowswap"] = {
     loaded = true,
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/vim-windowswap"
-  },
-  ["vim-workspace"] = {
-    loaded = true,
-    path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/vim-workspace"
   }
 }
 
@@ -171,6 +176,10 @@ time([[Defining packer_plugins]], false)
 time([[Setup for dashboard-nvim]], true)
 try_loadstring("\27LJ\1\2)\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\14dashboard\frequire\0", "setup", "dashboard-nvim")
 time([[Setup for dashboard-nvim]], false)
+-- Config for: everforest
+time([[Config for everforest]], true)
+try_loadstring("\27LJ\1\2X\0\0\2\0\5\0\b4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\3\0%\1\4\0>\0\2\1G\0\1\0\14highlight\frequire\27colorscheme everforest\bcmd\bvim\0", "config", "everforest")
+time([[Config for everforest]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15treesitter\frequire\0", "config", "nvim-treesitter")

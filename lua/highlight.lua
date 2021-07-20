@@ -1,9 +1,9 @@
 local colors = require("colors")
-local cmd = vim.cmd
 
 local hi = function(settings, fg, bg)
     for _, setting in ipairs(settings) do
-        cmd('hi! ' .. setting .. ' guifg=' .. fg .. ' guibg=' .. bg)
+        local command = 'hi! ' .. setting .. ' guifg=' .. fg .. ' guibg=' .. bg
+				vim.cmd(command)
     end
 end
 

@@ -7,7 +7,14 @@ vim.cmd [[packadd dashboard-nvim]]
 
 return require("packer").startup(function()
     use 'wbthomason/packer.nvim'
-    use 'sainnhe/everforest'
+	
+    use {
+		  'sainnhe/everforest',
+			config = function()
+				vim.cmd("colorscheme everforest")
+				require("highlight")
+			end
+		}
 
     use {
         'glepnir/galaxyline.nvim',
@@ -25,6 +32,7 @@ return require("packer").startup(function()
 
     use {
         'nvim-treesitter/nvim-treesitter',
+				run = ":TSInstall",
         config = function()
             require("treesitter")
         end
@@ -35,11 +43,7 @@ return require("packer").startup(function()
         branch = 'release'
     }
 
-    -- todo: implement lazy loading
-    -- use 'f-person/git-blame.nvim'
-
     use 'romgrk/barbar.nvim'
-
     use 'tpope/vim-obsession'
 
     use 'wesQ3/vim-windowswap'
@@ -71,14 +75,6 @@ return require("packer").startup(function()
         end
     }
 
-    -- use {
-    --     "~/Code/dashboard-nvim",
-    --     cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
-    --     setup = function()
-    --       require("dashboard")
-    --     end
-    -- }
-
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
@@ -90,5 +86,11 @@ return require("packer").startup(function()
             require("comment")
         end
     }
+
+    use 'neovim/nvim-lspconfig'
+
+    if vim.g.peafowl_go_support == 1 then
+        use { 'fatih/vim-go', run = ":GoInstallBinaries" }
+    end
 end)
 
