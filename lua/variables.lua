@@ -41,7 +41,7 @@ g.nvim_tree_show_icons = {
 -- remove this to get rid of branding
 g.peafowl_branding = 1
 
-g.peafowl_lsp_list = {'graphql', 'html', 'bashls', 'gopls', 'elixirls', 'sumneko_lua'}
+g.peafowl_lsp_list = {'graphql', 'html', 'bashls', 'gopls', 'elixirls', 'sumneko_lua', 'pyright'}
 
 -- coc.nvim extensions
 g.coc_global_extensions = {'coc-prettier', 'coc-eslint', 'coc-discord-rpc', 'coc-tsserver', 'coc-markdownlint'}

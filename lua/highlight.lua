@@ -14,7 +14,7 @@ hi({'CocWarningSign', 'LspDiagnosticsSignWarning'}, colors.coc_warning, colors.b
 hi({'SignColumn'}, colors.sign_column_fg, colors.bg)
 
 hi({'CocInfoSign', 'GitGutterAdd', 'GitSignsAdd'}, colors.git_add, colors.bg)
-hi({'CocErrorSign', 'GitGutterDelete', 'GitSignsDelete'}, colors.git_del, colors.bg)
+hi({'CocErrorSign', 'GitGutterDelete', 'GitSignsDelete', 'LspDiagnosticsSignError'}, colors.git_del, colors.bg)
 hi({'GitGutterChange', 'GitSignsChange', 'LspDiagnosticsSignHint'}, colors.git_mod, colors.bg)
 
 hi({'Statusline', 'StatuslineNC'}, colors.bg, colors.bg)
