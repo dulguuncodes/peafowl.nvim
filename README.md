@@ -6,7 +6,14 @@ An elegant Neovim configuration focused on customizability and performance.
 
 ## Requirements
 
-- Neovim 0.5
+- Neovim 0.5+
+- lua-language-server (for Lua LSP support) (optional)
+- bash-language-server (for bash LSP support) (optional)
+- graphql-lsp (for GraphQL LSP support) (optional)
+- vscode-html-languageserver (for HTML LSP support) (optional)
+- elixir-ls (for Elixir LSP support) (optional)
+
+## Installation
 
 ## Supported Programming Languages
 
@@ -16,22 +23,20 @@ An elegant Neovim configuration focused on customizability and performance.
 
 - ❌ - Not Supported
 
-\*FTR means Further Testing Required
-
 |        Language        |     Syntax Highlighting    | LSP support | Linting |
 | ---------------------- | :------------------------: | :---------: | :-----: |
-| Python                 |      ⏳ (WIP)              | ✅          | ✅      |
+| Python                 |      ✅                    | ✅          | ✅      |
 | Go                     |      ✅                    | ✅          | ✅      |
-| Rust                   |      ✅                    | ⏳ (FTR*)   | ✅      |
+| Rust                   |      ✅                    | ✅          | ✅      |
 | Elixir                 |      ✅                    | ✅          | ✅      |
 | Typescript/Javascript  |      ✅                    | ✅          | ✅      |
 | React (jsx/tsx)        |      ✅                    | ✅          | ✅      |
 | Dart/Flutter           |      ✅                    | ✅          | ✅      |
-| HTML                   |      ❌ (unstable)         | ❌          | ❌      |
+| HTML                   |      ❌ (unstable)         | ⏳ (wip)    | ❌      |
 | JSON                   |      ✅                    | ⏳ (wip)    | ✅      |
-| Lua                    |      ✅                    | ❌          | ✅      |
+| Lua                    |      ✅                    | ⏳ (wip)    | ✅      |
 | YAML                   |      ✅                    | ❌          | ✅      |
 | Dockerfile             |      ✅                    | ❌          | ✅      |
 | Shell (fish/bash/zsh)  |      ✅                    | ❌          | ✅      |
-| GraphQL                |      ❌ (non-functional)   | ❌          | ❌      |
+| GraphQL                |      ❌ (non-functional)   | ⏳ (wip)     | ❌     |
 
