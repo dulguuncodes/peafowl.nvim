@@ -88,9 +88,5 @@ return require("packer").startup(function()
     }
 
     use 'neovim/nvim-lspconfig'
-
-    if vim.g.peafowl_go_support == 1 then
-        use { 'fatih/vim-go', run = ":GoInstallBinaries" }
-    end
 end)
 
