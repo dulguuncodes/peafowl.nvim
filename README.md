@@ -16,7 +16,7 @@ An elegant Neovim configuration focused on customizability and performance.
 
 - ❌ - Not Supported
 
-\*FTR means Further Testing Requires
+\*FTR means Further Testing Required
 
 |        Language        |     Syntax Highlighting    | LSP support | Linting |
 | ---------------------- | :------------------------: | :---------: | :-----: |
