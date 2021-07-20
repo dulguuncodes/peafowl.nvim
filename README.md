@@ -4,6 +4,10 @@ An elegant Neovim configuration focused on customizability and performance.
 
 ![golang without it's lsp](./screenshots/golang-without-lsp.png)
 
+## Requirements
+
+- Neovim 0.5
+
 ## Supported Programming Languages
 
 - ✅ - Fully Supported
