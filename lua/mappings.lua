@@ -14,7 +14,7 @@
 -- given a table, it uses `vim.api.nvim_set_keymap` to create keybinds
 ---@param keymaps any
 function Map(keymaps)
-    for i, keymap in ipairs(keymaps) do
+    for _, keymap in ipairs(keymaps) do
         vim.api.nvim_set_keymap(keymap.type, keymap.key, keymap.cmd, keymap.opts)
     end
 end

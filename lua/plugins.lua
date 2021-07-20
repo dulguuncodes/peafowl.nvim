@@ -1,20 +1,19 @@
 local packer = require("packer")
 local use = packer.use
-local use_rock = packer.use_rocks
 
 -- Resolves issues where dashboard-nvim isn't initialized
 vim.cmd [[packadd dashboard-nvim]]
 
 return require("packer").startup(function()
     use 'wbthomason/packer.nvim'
-	
+  
     use {
-		  'sainnhe/everforest',
-			config = function()
-				vim.cmd("colorscheme everforest")
-				require("highlight")
-			end
-		}
+      'sainnhe/everforest',
+      config = function()
+        vim.cmd("colorscheme everforest")
+        require("highlight")
+      end
+    }
 
     use {
         'glepnir/galaxyline.nvim',
@@ -32,7 +31,7 @@ return require("packer").startup(function()
 
     use {
         'nvim-treesitter/nvim-treesitter',
-				run = ":TSInstall",
+        run = ":TSInstall",
         config = function()
             require("treesitter")
         end

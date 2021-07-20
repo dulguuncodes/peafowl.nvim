@@ -20,11 +20,11 @@ custom_header = {
   "      /,o O' o O o, \\",
   "   _-'. 'o _o _O_o-o.`-_",
   "   `\"\"\"---......---\"\"\"`",
-	"                             ",
+  "                             ",
 }
 
 if g.peafowl_branding == 1 then
-	custom_header[#custom_header+1] = "        " .. symbols.peacock .. " peafowl           "
+  custom_header[#custom_header+1] = "        " .. symbols.peacock .. " peafowl           "
 end
 
 g.dashboard_custom_header = custom_header
@@ -48,10 +48,10 @@ g.dashboard_custom_section = {
         description = {"  Open up NvimTree          SPC o n"},
         command = "NvimTreeToggle"
     },
-		f = {
-			  description = {"📚 Toggle Sessions           SPC t s"},
-				command = "Obsess"
-		},
+    f = {
+        description = {"📚 Toggle Sessions           SPC t s"},
+        command = "Obsess"
+    },
     g = {
         description = {"  Load Last Session         SPC l s"},
         command = "silent! source Session.vim"

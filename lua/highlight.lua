@@ -3,7 +3,7 @@ local colors = require("colors")
 local hi = function(settings, fg, bg)
     for _, setting in ipairs(settings) do
         local command = 'hi! ' .. setting .. ' guifg=' .. fg .. ' guibg=' .. bg
-				vim.cmd(command)
+        vim.cmd(command)
     end
 end
 

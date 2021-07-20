@@ -1,5 +1,5 @@
 local colors = {
-		-- statusline colors
+    -- statusline colors
     bg = '#2B3339',
     blue = '#869AC2',
     green = '#a3be8c',
@@ -11,19 +11,19 @@ local colors = {
     cyan = '#88c0d0',
     red = '#E17D8F',
 
-		-- gitgutter, gitsigns and coc.nvim colors
-		git_add = '#6fa19b',
-		git_del = '#e17d84',
-		git_mod = '#a3be8c',
-		coc_warning = '#CBB07A',
+    -- gitgutter, gitsigns and coc.nvim colors
+    git_add = '#6fa19b',
+    git_del = '#e17d84',
+    git_mod = '#a3be8c',
+    coc_warning = '#CBB07A',
 
-		-- standard vim sign column colors
-		sign_column_fg = '#d3c6aa',
+    -- standard vim sign column colors
+    sign_column_fg = '#d3c6aa',
 
-		-- bufferline.nvim colors
-		buffer_bg = '#2F383E',
-		visible_buffer = '#e2e2e3',
-		inactive_buffer = '#737373',
+    -- bufferline.nvim colors
+    buffer_bg = '#2F383E',
+    visible_buffer = '#e2e2e3',
+    inactive_buffer = '#737373',
 }
 
 return colors
