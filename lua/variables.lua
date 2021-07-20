@@ -1,7 +1,8 @@
 local g = vim.g
 local opt = vim.opt
 
-g.mapleader = "\\" --- Sets global leader to \
+-- sets the leader used in keymaps
+g.mapleader = "\\"
 g.loaded_python_provider = 0
 g.loaded_perl_provider = 0
 g.everforest_background = "hard"
@@ -24,6 +25,9 @@ g.workspace_autosave = 1
 -- use this if you're debugging session loads
 g.debug_sessions = 1
 
+g.peafowl_lua_lsp_location = '/usr/bin/lua-language-server'
+g.peafowl_lua_lsp_lib = '/usr/share/lua-language-server'
+
 g.nvim_tree_git_hl = 0
 g.nvim_tree_gitignore = 0
 g.nvim_tree_show_icons = {
@@ -35,7 +39,7 @@ g.nvim_tree_show_icons = {
 -- remove this to get rid of branding
 g.peafowl_branding = 1
 
-g.peafowl_lsp_list = {'graphql', 'html', 'bashls', 'gopls', 'elixirls'}
+g.peafowl_lsp_list = {'graphql', 'html', 'bashls', 'gopls', 'elixirls', 'sumneko_lua'}
 
 -- coc.nvim extensions
 g.coc_global_extensions = {'coc-prettier', 'coc-eslint', 'coc-discord-rpc', 'coc-tsserver', 'coc-markdownlint'}
