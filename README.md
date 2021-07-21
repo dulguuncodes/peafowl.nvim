@@ -15,7 +15,13 @@ An elegant Neovim configuration focused on customizability and performance.
 
 ## Installation
 
-`nvim -u bootstrap.lua +:PackerInstall`
+**Warning: Make sure you have backed up your previous Neovim configuration**
+
+```
+git clone https://github.com/dulguuncodes/peafowl ~/.config/nvim`
+cd ~/.config/nvim
+nvim -u bootstrap.lua +:PackerInstall`
+```
 
 **NOTE: You will see some errors on startup, ignore them. The installation will
 start shortly**
