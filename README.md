@@ -15,6 +15,11 @@ An elegant Neovim configuration focused on customizability and performance.
 
 ## Installation
 
+`nvim -u bootstrap.lua +:PackerInstall`
+
+**NOTE: You will see some errors on startup, ignore them. The installation will
+start shortly**
+
 ## Supported Programming Languages
 
 - ✅ - Fully Supported
