@@ -1,8 +1,15 @@
+local execute = vim.api.nvim_command
+local fn = vim.fn
+
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  execute 'packadd packer.nvim'
+end
+
 local packer = require("packer")
 local use = packer.use
-
--- Resolves issues where dashboard-nvim isn't initialized
-vim.cmd [[packadd dashboard-nvim]]
 
 return require("packer").startup(function()
     use 'wbthomason/packer.nvim'
@@ -11,7 +18,6 @@ return require("packer").startup(function()
       'sainnhe/everforest',
       config = function()
         vim.cmd("colorscheme everforest")
-        require("highlight")
       end
     }
 
@@ -31,10 +37,7 @@ return require("packer").startup(function()
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ":TSUpdate",
-        config = function()
-            require("treesitter")
-        end
+        run = ":TSUpdate"
     }
 
     use {
@@ -54,10 +57,7 @@ return require("packer").startup(function()
 
     use {
         'lewis6991/gitsigns.nvim',
-        requires = {'nvim-lua/plenary.nvim'},
-        config = function()
-            require('gitsigns').setup()
-        end
+        requires = {'nvim-lua/plenary.nvim'}
     }
 
     use 'airblade/vim-gitgutter'
@@ -68,10 +68,7 @@ return require("packer").startup(function()
 
     use {
         'dulguuncodes/dashboard-nvim',
-        cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
-        setup = function()
-            require("dashboard")
-        end
+        cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"}
     }
 
     use {
@@ -79,12 +76,7 @@ return require("packer").startup(function()
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
-    use {
-        'terrortylor/nvim-comment',
-        config = function()
-            require("comment")
-        end
-    }
+    use 'terrortylor/nvim-comment'
 
     use 'neovim/nvim-lspconfig'
 
@@ -94,4 +86,3 @@ return require("packer").startup(function()
       cmd = 'MarkdownPreview'
     }
 end)
-

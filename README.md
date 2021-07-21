@@ -37,6 +37,6 @@ An elegant Neovim configuration focused on customizability and performance.
 | Lua                    |      ✅                    | ⏳ (wip)    | ✅      |
 | YAML                   |      ✅                    | ❌          | ✅      |
 | Dockerfile             |      ✅                    | ❌          | ✅      |
-| Shell (fish/bash/zsh)  |      ✅                    | ❌          | ✅      |
-| GraphQL                |      ❌ (non-functional)   | ⏳ (wip)     | ❌     |
+| Shell (fish/bash/zsh)  |      ✅                    | ⏳ (wip)    | ✅      |
+| GraphQL                |      ❌ (non-functional)   | ⏳ (wip)    | ❌      |
 
