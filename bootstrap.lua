@@ -46,6 +46,9 @@ return require("packer").startup(function()
         run = ":TSUpdate"
     }
 
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-lua/popup.nvim'
+
     use {
         'neoclide/coc.nvim',
         branch = 'release'
@@ -61,10 +64,7 @@ return require("packer").startup(function()
         run = 'make hexokinase'
     }
 
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = {'nvim-lua/plenary.nvim'}
-    }
+    use 'lewis6991/gitsigns.nvim'
 
     use 'airblade/vim-gitgutter'
     use 'tpope/vim-fugitive'
@@ -77,10 +77,8 @@ return require("packer").startup(function()
         cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"}
     }
 
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    }
+    use 'nvim-telescope/telescope.nvim'
+    
 
     use 'terrortylor/nvim-comment'
 
