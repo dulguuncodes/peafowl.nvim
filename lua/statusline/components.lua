@@ -1,9 +1,6 @@
 local colors = require("colors")
 local util = require("statusline.utilities")
-local vcs = require('galaxyline.provider_vcs')
 local constants = require("statusline.constants")
-
-local fileinfo = require('galaxyline.provider_fileinfo')
 
 local start_padding = {
     provider = util.spacing,

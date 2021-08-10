@@ -116,6 +116,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/nvim-comment"
   },
+  ["nvim-compe"] = {
+    config = { "\27LJ\1\2¿\4\0\0\5\0\16\1\0214\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\5\0003\3\4\0:\3\6\0024\3\a\0007\3\b\0034\4\t\0007\4\n\0047\4\v\4\22\4\0\4>\3\2\2:\3\f\2:\2\r\0013\2\14\0:\2\15\1>\0\2\1G\0\1\0\vsource\1\0\b\14ultisnips\2\rnvim_lua\2\rnvim_lsp\2\vbuffer\2\nvsnip\2\tcalc\2\fluasnip\2\tpath\2\18documentation\15max_height\nlines\6o\bvim\nfloor\tmath\vborder\1\0\4\17winhighlightHNormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder\15min_height\3\1\14min_width\3<\14max_width\3x\1\t\0\0\5\5\5\6 \5\5\5\6 \1\0\f\20resolve_timeout\3 \6\19source_timeout\3È\1\fenabled\2\ndebug\1\14preselect\venable\19max_abbr_width\3d\21incomplete_delay\3\3\17autocomplete\2\19max_kind_width\3d\15min_length\3\1\18throttle_time\3P\19max_menu_width\3d\nsetup\ncompe\frequireçÌ™³\6³æÌþ\3\0" },
+    loaded = true,
+    path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -182,46 +187,36 @@ time([[Defining packer_plugins]], false)
 time([[Setup for dashboard-nvim]], true)
 try_loadstring("\27LJ\1\2)\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\14dashboard\frequire\0", "setup", "dashboard-nvim")
 time([[Setup for dashboard-nvim]], false)
--- Config for: everforest
-time([[Config for everforest]], true)
-try_loadstring("\27LJ\1\2X\0\0\2\0\5\0\b4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\3\0%\1\4\0>\0\2\1G\0\1\0\14highlight\frequire\27colorscheme everforest\bcmd\bvim\0", "config", "everforest")
-time([[Config for everforest]], false)
--- Config for: nvim-comment
-time([[Config for nvim-comment]], true)
-try_loadstring("\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\fcomment\frequire\0", "config", "nvim-comment")
-time([[Config for nvim-comment]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: everforest
+time([[Config for everforest]], true)
+try_loadstring("\27LJ\1\2X\0\0\2\0\5\0\b4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\3\0%\1\4\0>\0\2\1G\0\1\0\14highlight\frequire\27colorscheme everforest\bcmd\bvim\0", "config", "everforest")
+time([[Config for everforest]], false)
+-- Config for: nvim-compe
+time([[Config for nvim-compe]], true)
+try_loadstring("\27LJ\1\2¿\4\0\0\5\0\16\1\0214\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\5\0003\3\4\0:\3\6\0024\3\a\0007\3\b\0034\4\t\0007\4\n\0047\4\v\4\22\4\0\4>\3\2\2:\3\f\2:\2\r\0013\2\14\0:\2\15\1>\0\2\1G\0\1\0\vsource\1\0\b\14ultisnips\2\rnvim_lua\2\rnvim_lsp\2\vbuffer\2\nvsnip\2\tcalc\2\fluasnip\2\tpath\2\18documentation\15max_height\nlines\6o\bvim\nfloor\tmath\vborder\1\0\4\17winhighlightHNormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder\15min_height\3\1\14min_width\3<\14max_width\3x\1\t\0\0\5\5\5\6 \5\5\5\6 \1\0\f\20resolve_timeout\3 \6\19source_timeout\3È\1\fenabled\2\ndebug\1\14preselect\venable\19max_abbr_width\3d\21incomplete_delay\3\3\17autocomplete\2\19max_kind_width\3d\15min_length\3\1\18throttle_time\3P\19max_menu_width\3d\nsetup\ncompe\frequireçÌ™³\6³æÌþ\3\0", "config", "nvim-compe")
+time([[Config for nvim-compe]], false)
+-- Config for: nvim-comment
+time([[Config for nvim-comment]], true)
+try_loadstring("\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\fcomment\frequire\0", "config", "nvim-comment")
+time([[Config for nvim-comment]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-if vim.fn.exists(":DashboardNewFile") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file DashboardNewFile lua require("packer.load")({'dashboard-nvim'}, { cmd = "DashboardNewFile", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
-if vim.fn.exists(":Dashboard") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file Dashboard lua require("packer.load")({'dashboard-nvim'}, { cmd = "Dashboard", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
-if vim.fn.exists(":NvimTreeToggle") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
-if vim.fn.exists(":MarkdownPreview") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
-if vim.fn.exists(":SessionSave") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file SessionSave lua require("packer.load")({'dashboard-nvim'}, { cmd = "SessionSave", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
-if vim.fn.exists(":SessionLoad") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file SessionLoad lua require("packer.load")({'dashboard-nvim'}, { cmd = "SessionLoad", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
-if vim.fn.exists(":DashboardJumpMarks") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file DashboardJumpMarks lua require("packer.load")({'dashboard-nvim'}, { cmd = "DashboardJumpMarks", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DashboardNewFile lua require("packer.load")({'dashboard-nvim'}, { cmd = "DashboardNewFile", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Dashboard lua require("packer.load")({'dashboard-nvim'}, { cmd = "Dashboard", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SessionSave lua require("packer.load")({'dashboard-nvim'}, { cmd = "SessionSave", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SessionLoad lua require("packer.load")({'dashboard-nvim'}, { cmd = "SessionLoad", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DashboardJumpMarks lua require("packer.load")({'dashboard-nvim'}, { cmd = "DashboardJumpMarks", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 if should_profile then save_profiles() end

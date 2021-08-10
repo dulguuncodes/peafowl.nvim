@@ -1,6 +1,6 @@
 -- creating a keymap is relatively easy, simply add a table to the array that follows
 -- following format
--- 
+--
 -- `{type = 'n | v | ...', key = '<Leader>foobar', cmd = ':new<CR>', opts = { ...options }}`
 -- where *options* is in the following format `{ noremap = true | false, silent = true | false }`
 --
@@ -12,7 +12,7 @@
 -- further questions can be asked inside the repository issues section
 --
 -- given a table, it uses `vim.api.nvim_set_keymap` to create keybinds
----@param keymaps any
+-- @param keymaps any
 function Map(keymaps)
     for _, keymap in ipairs(keymaps) do
         vim.api.nvim_set_keymap(keymap.type, keymap.key, keymap.cmd, keymap.opts)
@@ -158,11 +158,20 @@ local keymaps = {{
 }, {
     type = 'v',
     key = '<C-d>',
-    cmd = '<C-\\><C-n>:tabnew | Dashboard<CR>',
+    cmd = '<C-\\><C-n><Cmd>tabnew | Dashboard<CR>',
     opts = {
         noremap = true,
         silent = false
     }
-}}
+  }, {
+    type = 'n',
+    key = '<Leader>ca',
+    cmd = '<Cmd>lua vim.lsp.buf.code_action()<CR>',
+    opts = {
+      noremap = false,
+      silent = false
+    },
+  }
+}
 
 Map(keymaps)
