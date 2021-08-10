@@ -77,10 +77,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/home/dulguuncodes/.local/share/nvim/site/pack/packer/start/coc.nvim"
-  },
   ["dashboard-nvim"] = {
     commands = { "Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave" },
     loaded = false,

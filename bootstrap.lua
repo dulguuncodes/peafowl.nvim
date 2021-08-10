@@ -24,8 +24,45 @@ return require("packer").startup(function()
       'sainnhe/everforest',
       config = function()
         vim.cmd("colorscheme everforest")
+        require("highlight")
       end
     }
+
+    use {'hrsh7th/nvim-compe', config = function()
+        require'compe'.setup {
+          enabled = true;
+      autocomplete = true;
+    debug = false;
+    min_length = 1;
+    preselect = 'enable';
+    throttle_time = 80;
+    source_timeout = 200;
+    resolve_timeout = 800;
+    incomplete_delay = 400;
+    max_abbr_width = 100;
+    max_kind_width = 100;
+    max_menu_width = 100;
+    documentation = {
+      border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
+      winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+      max_width = 120,
+      min_width = 60,
+      max_height = math.floor(vim.o.lines * 0.3),
+      min_height = 1,
+    };
+
+    source = {
+      path = true;
+      buffer = true;
+      calc = true;
+      nvim_lsp = true;
+      nvim_lua = true;
+      vsnip = true;
+      ultisnips = true;
+      luasnip = true;
+    };
+  }
+    end}
 
     use {
         'glepnir/galaxyline.nvim',
@@ -43,16 +80,15 @@ return require("packer").startup(function()
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ":TSUpdate"
+        run = ":TSUpdate",
+        config = function()
+            require("treesitter")
+        end
     }
-
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-lua/popup.nvim'
-
-    use {
-        'neoclide/coc.nvim',
-        branch = 'release'
-    }
+--     use {
+--         'neoclide/coc.nvim',
+--         branch = 'release'
+--     }
 
     use 'romgrk/barbar.nvim'
     use 'tpope/vim-obsession'
@@ -64,7 +100,13 @@ return require("packer").startup(function()
         run = 'make hexokinase'
     }
 
-    use 'lewis6991/gitsigns.nvim'
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {'nvim-lua/plenary.nvim'},
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
 
     use 'airblade/vim-gitgutter'
     use 'tpope/vim-fugitive'
@@ -74,13 +116,23 @@ return require("packer").startup(function()
 
     use {
         'dulguuncodes/dashboard-nvim',
-        cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"}
+        cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
+        setup = function()
+            require("dashboard")
+        end
     }
 
-    use 'nvim-telescope/telescope.nvim'
-    
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
 
-    use 'terrortylor/nvim-comment'
+    use {
+        'terrortylor/nvim-comment',
+        config = function()
+            require("comment")
+        end
+    }
 
     use 'neovim/nvim-lspconfig'
 
@@ -89,8 +141,4 @@ return require("packer").startup(function()
       run = 'cd app && yarn install',
       cmd = 'MarkdownPreview'
     }
-end, {
-    git = {
-      clone_timeout = timeout
-    }
-})
+end)

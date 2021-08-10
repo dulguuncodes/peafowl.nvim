@@ -1,16 +1,44 @@
-FROM archlinux:latest
+FROM alpine:latest
 
-RUN pacman -Syu --noconfirm
+RUN apk add --no-cache nodejs \
+                       npm \
+                       build-base
 
-RUN pacman -S git \
-              base-devel --noconfirm
+RUN npm install -g tree-sitter-cli
 
-RUN git clone https://aur.archlinux.org/yay.git
+WORKDIR /home/peafowl
 
-RUN cd yay
+ENV XDG_DATA_DIR=/home/peafowl/.local/share \
+    XDG_CONFIG_HOME=/home/peafowl/.config
 
-RUN makepkg -si
+RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
+RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 
-RUN makepkg --install
+RUN apk update
+RUN apk upgrade
 
-RUN yay --version
+RUN apk add --no-cache git \
+                       neovim \
+                       neovim-doc \
+                       go
+
+RUN git clone https://github.com/wbthomason/packer.nvim \
+    /home/peafowl/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+RUN addgroup "peafowl" \
+    && adduser -D -G "peafowl" -g "" -s "fish" "peafowl"
+
+COPY . /home/peafowl/.config/nvim
+
+RUN chown -R peafowl:peafowl /home/peafowl
+RUN chmod 755 -R /home/peafowl
+
+USER peafowl
+
+RUN nvim --headless --noplugin -u /home/peafowl/.config/nvim/bootstrap.lua "+autocmd User PackerComplete quitall" "+silent! PackerSync"
+
+COPY entrypoint.sh /usr/local/bin/
+
+VOLUME "/home/peafowl"
+
+ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]

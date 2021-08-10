@@ -71,11 +71,10 @@ return require("packer").startup(function()
             require("treesitter")
         end
     }
-
-    use {
-        'neoclide/coc.nvim',
-        branch = 'release'
-    }
+--     use {
+--         'neoclide/coc.nvim',
+--         branch = 'release'
+--     }
 
     use 'romgrk/barbar.nvim'
     use 'tpope/vim-obsession'
