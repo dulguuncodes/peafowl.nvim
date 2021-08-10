@@ -21,7 +21,7 @@ end
 
 local keymaps = {{
     type = 'n',
-    key = '<Leader>t',
+    key = '<Leader>s',
     cmd = ':Obsess<CR>',
     opts = {
         noremap = true,
@@ -29,7 +29,7 @@ local keymaps = {{
     }
 }, {
     type = 't',
-    key = '<Leader>t',
+    key = '<Leader>s',
     cmd = '<C-\\><C-n>:Obsess<CR>',
     opts = {
         noremap = true,
@@ -125,7 +125,7 @@ local keymaps = {{
     }
 }, {
     type = 'n',
-    key = '<Leader>te',
+    key = '<Leader>tf',
     cmd = ':Telescope find_files<CR>',
     opts = {
         noremap = false,
@@ -141,7 +141,7 @@ local keymaps = {{
     }
 }, {
     type = 'n',
-    key = '<C-n>',
+    key = '<Leader>n',
     cmd = ':NvimTreeToggle<CR>',
     opts = {
         noremap = true,

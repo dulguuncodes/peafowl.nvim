@@ -1,12 +1,4 @@
 {
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
-    }
-  },
   "rpc.workspaceElapsedTime": true,
   "rpc.idleTimeout": 1800,
   "coc.preferences.messageLevel": "error"

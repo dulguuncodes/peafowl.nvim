@@ -2,7 +2,7 @@ local g = vim.g
 local opt = vim.opt
 
 -- sets the leader used in keymaps
-g.mapleader = "\\"
+g.mapleader = " "
 g.loaded_python_provider = 0
 g.loaded_perl_provider = 0
 g.everforest_background = "hard"
@@ -42,8 +42,7 @@ end
 g.peafowl_branding = 1
 
 -- coc.nvim extensions
-g.coc_global_extensions = {'coc-prettier', 'coc-eslint', 'coc-discord-rpc', 'coc-tsserver', 'coc-markdownlint',
-                           'coc-json', 'coc-rust-analyzer'}
+g.coc_global_extensions = {'coc-discord-rpc', 'coc-markdownlint', 'coc-rust-analyzer'}
 
 opt.expandtab = true
 opt.shiftwidth = 2

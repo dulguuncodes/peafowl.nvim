@@ -33,27 +33,27 @@ g.dashboard_disable_statusline = 0
 
 g.dashboard_custom_section = {
     a = {
-        description = {"  Find File                 SPC f f"},
+        description = {"   Find File                 SPC t f"},
         command = "Telescope find_files"
     },
     b = {
-        description = {"  Recents                   SPC f o"},
+        description = {"   Recents                   SPC t r"},
         command = "Telescope oldfiles"
     },
     c = {
-        description = {"  Find Word                 SPC f w"},
+        description = {"   Find Word                 SPC t g"},
         command = "Telescope live_grep"
     },
     e = {
-        description = {"  Open up NvimTree          SPC o n"},
+        description = {"  Open up NvimTree          SPC n"},
         command = "NvimTreeToggle"
     },
     f = {
-        description = {"📚 Toggle Sessions           SPC t s"},
+        description = {"📚 Toggle Sessions           SPC b"},
         command = "Obsess"
     },
     g = {
-        description = {"  Load Last Session         SPC l s"},
+        description = {"  Load Last Session         SPC s"},
         command = "silent! source Session.vim"
     }
 }
