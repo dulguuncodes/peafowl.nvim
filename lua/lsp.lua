@@ -38,7 +38,8 @@ local on_attach = function(client, bufnr)
 end
 
 
-local servers = {  sumneko_lua = {
+local servers = {
+  sumneko_lua = {
     cmd = { g.peafowl_lua_lsp_location, '-E', g.peafowl_lua_lsp_lib },
     diagnostics = {
       globals = { 'vim' }
@@ -54,13 +55,14 @@ local servers = {  sumneko_lua = {
     cmd = { g.peafowl_elixir_lsp_location }
   },
   diagnosticls = {
-    filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "css", "html"},
+    filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "css", "html", "json"},
     init_options = {
       filetypes = {
         javascript = "eslint",
         typescript = "eslint",
         javascriptreact = "eslint",
-        typescriptreact = "eslint"
+        typescriptreact = "eslint",
+        json = "prettier"
       },
       linters = {
         eslint = {
@@ -95,8 +97,22 @@ local servers = {  sumneko_lua = {
         }
       },
       formatters = {
-        prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}}
-      }
+        prettier = {
+          command = 'prettier',
+          args = { '--stdin-filepath', '%filename' }
+        }
+      },
+      formatFiletypes = {
+        css = 'prettier',
+        javascript = 'prettier',
+        javascriptreact = 'prettier',
+        json = 'prettier',
+        scss = 'prettier',
+        less = 'prettier',
+        typescript = 'prettier',
+        typescriptreact = 'prettier',
+        markdown = 'prettier',
+      },
     }
   },
   tsserver = {
