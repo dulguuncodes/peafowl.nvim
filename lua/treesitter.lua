@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup {
-    ensure_installed = {"bash", "dart", "dockerfile", "elixir", "fish", "go", "graphql", "html", "javascript", "json",
-                        "lua", "python", "tsx", "typescript", "yaml", "rust"},
+    ensure_installed = {"dockerfile", "go", "javascript", "json", "elixir",
+                        "lua", "python", "tsx", "typescript"},
     highlight = {
         enable = true,
         disable = {"tsx", "html"} -- typescript react files somehow look better without nvim-treesitter
