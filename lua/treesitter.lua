@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup {
-    ensure_installed = {"dockerfile", "go", "javascript", "json", "elixir",
+    ensure_installed = {"dockerfile", "go", "javascript", "json", 
                         "lua", "python", "tsx", "typescript"},
     highlight = {
         enable = true,
