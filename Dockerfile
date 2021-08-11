@@ -23,6 +23,7 @@ RUN apk add --no-cache neovim \
                        go \
                        shadow \
                        nodejs \
+                       bash \
                        npm \
                        yarn \
                        build-base \
@@ -35,46 +36,32 @@ RUN apk add --no-cache neovim \
 RUN addgroup ${USER} && \
     adduser -D -G ${USER} -g "root" -s "sh" -u "1003" ${USER}
 
+WORKDIR /tmp
+
+# https://stackoverflow.com/questions/66963068/docker-alpine-executable-binary-not-found-even-if-in-path
 RUN set -ex && \
     apk --update add libstdc++ curl ca-certificates && \
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION}; \
-        do curl -sSL ${GLIBC_REPO}/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
-    apk add --allow-untrusted /tmp/*.apk && \
-    rm -v /tmp/*.apk && \
+        do curl -sSL ${GLIBC_REPO}/releases/download/${GLIBC_VERSION}/${pkg}.apk -o ${pkg}.apk; done && \
+    apk add --allow-untrusted *.apk && \
+    rm -v *.apk && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib
 
-
-RUN wget http://github.com/tree-sitter/tree-sitter/releases/download/v${TREESITTER_VERSION}/tree-sitter-linux-x64.gz && \
-    gzip -d tree-sitter-linux-x64.gz && \
+RUN wget -q http://github.com/tree-sitter/tree-sitter/releases/download/v${TREESITTER_VERSION}/tree-sitter-linux-x64.gz && \
+    gzip --quiet -d tree-sitter-linux-x64.gz && \
     chmod u+x tree-sitter-linux-x64 && \
     chown ${USER}:${USER} tree-sitter-linux-x64 && \
     mv tree-sitter-linux-x64 /usr/local/bin/tree-sitter
 
-WORKDIR /home/${USER}
-
-RUN git clone https://github.com/wbthomason/packer.nvim \
-    /home/${USER}/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-COPY . /home/${USER}/.config/nvim
-
-RUN chown -R ${USER}:${USER} /home/${USER} && \
-    chmod 755 -R /home/${USER}
-
-RUN mkdir /mnt/workspace && \
-    chown -R ${USER}:${USER} /mnt/workspace && \
-    chmod 755 -R /mnt/workspace
-
-VOLUME "/mnt/workspace"
-
 RUN usermod -u "1003" ${USER} && \
     groupmod -g "1003" ${USER}
 
-RUN wget https://s3.amazonaws.com/rebar3/rebar3 && \
+RUN wget -q https://s3.amazonaws.com/rebar3/rebar3 && \
     chmod +x rebar3 && \
     mv rebar3 /usr/local/bin/rebar
 
-RUN wget https://github.com/elixir-lsp/elixir-ls/archive/v${ELIXIRLS_VERSION}.tar.gz && \
-    tar -xzvf v${ELIXIRLS_VERSION}.tar.gz && \
+RUN wget -q https://github.com/elixir-lsp/elixir-ls/archive/v${ELIXIRLS_VERSION}.tar.gz && \
+    tar -xzf v${ELIXIRLS_VERSION}.tar.gz && \
     cd elixir-ls-${ELIXIRLS_VERSION} && \
     mix local.hex --force && \
     mix local.rebar --force rebar3 /usr/local/bin/rebar && \
@@ -87,7 +74,6 @@ RUN wget https://github.com/elixir-lsp/elixir-ls/archive/v${ELIXIRLS_VERSION}.ta
     chmod +x /usr/bin/elixir-ls /usr/bin/elixir-ls-debug
 
 RUN yarn global add diagnostic-languageserver
-
 RUN yarn global add "typescript-language-server@${TSSERVER_VERSION}"
 
 RUN git clone https://github.com/sumneko/lua-language-server && \
@@ -104,7 +90,7 @@ RUN git clone https://github.com/sumneko/lua-language-server && \
 
 RUN cd lua-language-server && \
     ninja -C 3rd/luamake -f compile/ninja/linux.ninja && \
-    ./3rd/luamake/luamake rebuild
+    ./3rd/luamake/luamake rebuild &> /dev/null
 
 RUN cd lua-language-server && \
     echo -e '#!/usr/bin/env sh\nTMPPATH=$(mktemp -d "/tmp/lua-language-server.XXXX")\nDEFAULT_LOGPATH="$TMPPATH/log"\nDEFAULT_METAPATH="$TMPPATH/meta"\n\nexec /usr/lib/lua-language-server/lua-language-server -E /usr/share/lua-language-server/main.lua \\\n --logpath="$DEFAULT_LOGPATH" --metapath="$DEFAULT_METAPATH" "$@"' > /usr/bin/lua-language-server && \
@@ -120,6 +106,24 @@ RUN cd lua-language-server && \
     cp -r locale /usr/share/lua-language-server && \
     cp -r script /usr/share/lua-language-server && \
     cp -r meta /usr/share/lua-language-server
+
+WORKDIR /home/${USER}
+
+RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+RUN git clone https://github.com/wbthomason/packer.nvim \
+    /home/${USER}/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+COPY . /home/${USER}/.config/nvim
+
+RUN chown -R ${USER}:${USER} /home/${USER} && \
+    chmod 755 -R /home/${USER}
+
+RUN mkdir /mnt/workspace && \
+    chown -R ${USER}:${USER} /mnt/workspace && \
+    chmod 755 -R /mnt/workspace
+
+VOLUME "/mnt/workspace"
 
 USER ${USER}
 
