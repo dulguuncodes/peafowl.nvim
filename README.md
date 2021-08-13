@@ -51,3 +51,8 @@ start shortly**
 | Shell (fish/bash/zsh)  |      ✅                    | ⏳ (wip)    | ✅      |
 | GraphQL                |      ❌ (non-functional)   | ⏳ (wip)    | ❌      |
 
+## TODO:
+
+- Support multiple architectures (Docker)
+- Use a better mapping system
+
