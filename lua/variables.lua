@@ -22,8 +22,8 @@ g.workspace_session_disable_on_args = 1
 g.workspace_disable_on_vimenter = 1
 g.workspace_autosave = 1
 
-g.peafowl_lua_lsp_location = '/usr/bin/lua-language-server'
-g.peafowl_lua_lsp_lib = '/usr/share/lua-language-server'
+g.peafowl_lua_lsp_location = '/usr/local/bin/lua-language-server'
+g.peafowl_lua_lsp_lib = '/usr/local/share/lua-language-server'
 
 g.peafowl_elixir_lsp_location = '/usr/bin/elixir-ls'
 g.peafowl_nvim_tree_patch = 1

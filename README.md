@@ -69,3 +69,9 @@ building an arm64 image which you can get using `docker pull dulguuncodes/peafow
 however nvim-treesitter parsers seem to only work on x86\_64. If you know a fix, feel free
 to open a Github issue!
 
+### nvim-treesitter parsers don't work on Apple's M1 Chip
+
+Before opening a Github issue, please ensure that both Neovim and your terminal
+emulator are built for arm64 systems. You can tell if a program is running under
+arm64 by going to the Activity Monitor.
+

@@ -119,9 +119,10 @@ local servers = {
     on_attach = function(client)
       client.resolved_capabilities.document_formatting = false
       on_attach(client)
-    end
+    end,
+    cmd = { "/opt/homebrew/bin/typescript-language-server", "--stdio" }
   }
-  }
+}
 
 vim.lsp.set_log_level("debug")
 
