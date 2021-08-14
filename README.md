@@ -21,7 +21,7 @@ An elegant Neovim configuration focused on customizability and performance.
 ```
 git clone https://github.com/dulguuncodes/peafowl ~/.config/nvim
 cd ~/.config/nvim
-nvim -u bootstrap.lua +:PackerInstall
+nvim -u bootstrap.lua --noplugin "+autocmd PackerComplete quitall" "+PackerSync"
 ```
 
 **NOTE: You will see some errors on startup, ignore them. The installation will
