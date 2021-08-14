@@ -243,9 +243,9 @@ local constants = {
         return " " .. symbols.linux_logo .. " linux "
     end,
     operating_system_condition = util.checkwidth,
-    operating_system_highlight = {colors.black, colors.cyan},
+    operating_system_highlight = {colors.black, colors.green},
     operating_system_separator = symbols.right_upside_down_right_triangle,
-    operating_system_separator_highlight = {colors.cyan, colors.black},
+    operating_system_separator_highlight = {colors.green, colors.black},
 
     left_padding_provider = function()
         return symbols.left_semicircle
@@ -262,7 +262,7 @@ local constants = {
     right_padding_provider = function()
         return symbols.right_semicircle .. " "
     end,
-    right_padding_highlight = {colors.cyan, colors.bg},
+    right_padding_highlight = {colors.green, colors.bg},
     right_padding_condition = function()
         local squeeze_width = vim.fn.winwidth(0) / 2
         if squeeze_width > 60 then

@@ -221,15 +221,6 @@ local components = {
     Space = {
         Space = space
     },
-    SpaceFg = {
-        SpaceFg = space_fg
-    },
-    SpaceFg2 = {
-        SpaceFg2 = space_fg2
-    },
-    SpaceFg3 = {
-        SpaceFg3 = space_fg3
-    },
     SpaceInBetweenFnameAndCur = {
         SpaceInBetweenFnameAndCur = space_between_fname_and_cur_pos
     },
