@@ -19,19 +19,19 @@ RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/main > /etc/apk/repositories
 RUN apk update && apk upgrade
 
 RUN apk add --no-cache neovim \
-                       neovim-doc \
-                       go \
-                       shadow \
-                       nodejs \
-                       bash \
-                       npm \
-                       yarn \
-                       build-base \
-                       wget \
-                       gzip \
-                       elixir \
-                       git \
-                       ninja
+    neovim-doc \
+    go \
+    shadow \
+    nodejs \
+    bash \
+    npm \
+    yarn \
+    build-base \
+    wget \
+    gzip \
+    elixir \
+    git \
+    ninja
 
 RUN addgroup ${USER} && \
     adduser -D -G ${USER} -g "root" -s "sh" -u "1003" ${USER}
@@ -42,7 +42,7 @@ WORKDIR /tmp
 RUN set -ex && \
     apk --update add libstdc++ curl ca-certificates && \
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION}; \
-        do curl -sSL ${GLIBC_REPO}/releases/download/${GLIBC_VERSION}/${pkg}.apk -o ${pkg}.apk; done && \
+    do curl -sSL ${GLIBC_REPO}/releases/download/${GLIBC_VERSION}/${pkg}.apk -o ${pkg}.apk; done && \
     apk add --allow-untrusted *.apk && \
     rm -v *.apk && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib
@@ -62,11 +62,15 @@ RUN wget -q https://s3.amazonaws.com/rebar3/rebar3 && \
 
 RUN wget -q https://github.com/elixir-lsp/elixir-ls/archive/v${ELIXIRLS_VERSION}.tar.gz && \
     tar -xzf v${ELIXIRLS_VERSION}.tar.gz && \
-    cd elixir-ls-${ELIXIRLS_VERSION} && \
+    cd elixir-ls-${ELIXIRLS_VERSION}
+
+RUN cd elixir-ls-${ELIXIRLS_VERSION} && \
     mix local.hex --force && \
     mix local.rebar --force rebar3 /usr/local/bin/rebar && \
     mix deps.get && \
-    mix compile && \
+    mix compile
+
+RUN cd elixir-ls-${ELIXIRLS_VERSION} && \
     mkdir /usr/lib/elixir-ls && \
     mix elixir_ls.release -o /usr/lib/elixir-ls && \
     echo -e "#!/bin/sh\nexec /usr/lib/elixir-ls/language_server.sh" > "${pkgdir}"/usr/bin/elixir-ls && \
@@ -81,7 +85,7 @@ RUN git clone https://github.com/sumneko/lua-language-server && \
     git checkout tags/${SUMNEKO_LUA_VERSION} && \
     git submodule init && \
     for i in ../{bee.lua,love-api,lpeglabel,luamake,rcedit}; do \
-      git config submodule.3rd/${i##../}.url $i; done && \
+    git config submodule.3rd/${i##../}.url $i; done && \
     git submodule update && \
     cd 3rd/luamake && \
     git submodule init && \

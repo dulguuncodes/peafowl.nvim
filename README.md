@@ -53,6 +53,18 @@ start shortly**
 
 ## TODO:
 
-- Support multiple architectures (Docker)
-- Use a better mapping system
+- [ ] Support multiple architectures (Docker)
+- [ ] Use a better mapping system
+- [ ] Debloat configuration by removing unused plugins and give the user more control.
+- [ ] Document internal functions and utilities used
+- [ ] Rewrite key maps
+- [x] Automate Docker builds
+- [x] Publish a working release
+
+### The Docker container runs out of memory quickly for some reason.
+
+Currently, the Docker container works flawlessly on amd64/x86\_64 CPUs, I have tried
+building an arm64 image which you can get using `docker pull dulguuncodes/peafowl:arm64-latest`,
+however nvim-treesitter parsers seem to only work on x86\_64. If you know a fix, feel free
+to open a Github issue!
 
