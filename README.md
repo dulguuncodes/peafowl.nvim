@@ -12,6 +12,7 @@ An elegant Neovim configuration focused on customizability and performance.
 - graphql-lsp (for GraphQL LSP support) (optional)
 - vscode-html-languageserver (for HTML LSP support) (optional)
 - elixir-ls (for Elixir LSP support) (optional)
+- A Nerd Font installed and configured (preferably `MesloLG Nerd Font`)
 
 ## Installation
 
