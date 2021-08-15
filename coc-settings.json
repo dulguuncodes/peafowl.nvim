@@ -1,6 +1,0 @@
-{
-  "rpc.workspaceElapsedTime": true,
-  "rpc.idleTimeout": 1800,
-  "coc.preferences.messageLevel": "error"
-}
-
