@@ -27,8 +27,7 @@ RUN apk add --no-cache neovim \
     wget \
     gzip \
     elixir \
-    git \
-    ninja
+    git
 
 RUN addgroup ${USER} && \
     adduser -D -G ${USER} -g "root" -s "sh" -u "1003" ${USER}
