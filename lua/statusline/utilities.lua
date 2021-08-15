@@ -1,67 +1,101 @@
 local colors = require("colors")
+local symbols = require("symbols")
 
-local buffer_not_empty = function()
-    if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-        return true
-    end
-    return false
+_OPERATING_SYSTEM = nil
+
+local M = {}
+
+local M.buffer_not_empty = function()
+  if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
+    return true
+  end
+  return false
 end
 
-local checkwidth = function()
-    local squeeze_width = vim.fn.winwidth(0) / 2
-    if squeeze_width > 40 then
-        return true
-    end
-    return false
+local M.checkwidth = function()
+  local squeeze_width = vim.fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return true
+  end
+  return false
 end
 
 --- Checks if current buffer is in a Git repository
-local check_for_git = function()
-    if buffer_not_empty() and require("galaxyline.condition").check_git_workspace() then
-        return colors.blue
-    end
-    return colors.bg
+local M.check_for_git = function()
+  if buffer_not_empty() and require("galaxyline.condition").check_git_workspace() then
+    return colors.blue
+  end
+  return colors.bg
 end
 
-local buffer_check = function()
-    if buffer_not_empty() then
-        return colors.fg
-    end
-    return colors.white
+local M.buffer_check = function()
+  if buffer_not_empty() then
+    return colors.fg
+  end
+  return colors.white
 end
 
-local git_patch = function()
-    if buffer_not_empty() then
-        return check_for_git()
-    end
-    return colors.bg
+local M.git_patch = function()
+  if buffer_not_empty() then
+    return check_for_git()
+  end
+  return colors.bg
 end
 
-local spacing = function()
-    return ' '
+local M.spacing = function()
+  return " "
 end
 
-local split = function(inputstr, sep)
-    if sep == nil then
-        sep = "%s"
-    end
-    local t = {}
-
-    for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
-        table.insert(t, str)
-    end
-
-    return t
+function os.capture(cmd, raw)
+  local f = assert(io.popen(cmd, "r"))
+  local s = assert(f:read("*a"))
+  f:close()
+  if raw then
+    return s
+  end
+  s = string.gsub(s, "^%s+", "")
+  s = string.gsub(s, "%s+$", "")
+  s = string.gsub(s, "[\n\r]+", " ")
+  return s
 end
 
-local utils = {
-    buffer_not_empty = buffer_not_empty,
-    buffer_check = buffer_check,
-    checkwidth = checkwidth,
-    check_for_git = check_for_git,
-    spacing = spacing,
-    git_patch = git_patch,
-    split = split
-}
+local _get_os_icon = function(os)
+  if os == "Linux" then
+    return symbols.linux_logo
+  elseif os == "Darwin" then
+    return symbols.darwin_logo
+  elseif os == "Windows" then
+    return symbols.windows_logo
+  else
+    return symbols.unknown_logo
+  end
+end
 
-return utils
+local M.get_operating_system = function()
+  if _OPERATING_SYSTEM == nil then
+    local separator = package.config:sub(1, 1)
+
+    if separator == "/" then
+      _OPERATING_SYSTEM = os.capture("uname")
+    else
+      _OPERATING_SYSTEM = "Windows"
+    end
+  end
+
+  return _OPERATING_SYSTEM .. " " .. _get_os_icon(_OPERATING_SYSTEM)
+end
+
+local M.split = function(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t = {}
+
+  for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+    table.insert(t, str)
+  end
+
+  return t
+end
+
+return M
