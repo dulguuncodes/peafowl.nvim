@@ -1,7 +1,8 @@
 local map = require("cartographer")
 
+map.n.nore["<SPACE>"] = "<Nop>"
+
 map.n.nore.silent["<Leader>s"] = "<Cmd>Obsess<CR>"
-map.t.nore.silent["<Leader>s"] = "<C-\\><C-n><Cmd>Obsess<CR>"
 
 map.v.nore["<Leader>y"] = '"+y'
 map.n.nore["<Leader>y"] = '"+y'
