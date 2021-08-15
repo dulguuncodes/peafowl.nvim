@@ -55,7 +55,10 @@ local servers = {
     }
   },
   elixirls = {
-    cmd = {g.peafowl_elixir_lsp_location}
+    cmd = {"/usr/local/bin/elixir-ls"}
+  },
+  gopls = {
+    cmd = {os.getenv("HOME") .. "/go/bin/gopls"}
   },
   diagnosticls = {
     filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "css", "html", "json", "lua"},

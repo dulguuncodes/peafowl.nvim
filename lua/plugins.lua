@@ -1,10 +1,9 @@
 local packer = require("packer")
-local use = packer.use
 
 vim.cmd [[packadd dashboard-nvim]]
 
 return require("packer").startup(
-  function()
+  function(use)
     use "wbthomason/packer.nvim"
 
     use {
