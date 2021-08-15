@@ -5,9 +5,9 @@ ENV PATH="/usr/local/bin:${PATH}" \
     GLIBC_VERSION=2.30-r0 \
     MIX_ENV=prod \
     TREESITTER_VERSION=0.20.0 \
-    ELIXIRLS_VERSION=0.7.0 \
-    TSSERVER_VERSION=0.5.4 \
-    SUMNEKO_LUA_VERSION=2.3.4 \
+    ELIXIRLS_VERSION=0.8.0 \
+    TSSERVER_VERSION=0.6.0 \
+    SUMNEKO_LUA_VERSION=2.3.6 \
     USER=peafowl
 
 ENV XDG_DATA_DIR=/home/${USER}/.local/share \
