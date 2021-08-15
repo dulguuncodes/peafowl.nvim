@@ -5,9 +5,6 @@ ENV PATH="/usr/local/bin:${PATH}" \
     GLIBC_VERSION=2.30-r0 \
     MIX_ENV=prod \
     TREESITTER_VERSION=0.20.0 \
-    ELIXIRLS_VERSION=0.8.0 \
-    TSSERVER_VERSION=0.6.0 \
-    SUMNEKO_LUA_VERSION=2.3.6 \
     USER=peafowl
 
 ENV XDG_DATA_DIR=/home/${USER}/.local/share \
@@ -55,61 +52,6 @@ RUN wget -q http://github.com/tree-sitter/tree-sitter/releases/download/v${TREES
 
 RUN usermod -u "1003" ${USER} && \
     groupmod -g "1003" ${USER}
-
-RUN wget -q https://s3.amazonaws.com/rebar3/rebar3 && \
-    chmod +x rebar3 && \
-    mv rebar3 /usr/local/bin/rebar
-
-RUN wget -q https://github.com/elixir-lsp/elixir-ls/archive/v${ELIXIRLS_VERSION}.tar.gz && \
-    tar -xzf v${ELIXIRLS_VERSION}.tar.gz && \
-    cd elixir-ls-${ELIXIRLS_VERSION}
-
-RUN cd elixir-ls-${ELIXIRLS_VERSION} && \
-    mix local.hex --force && \
-    mix local.rebar --force rebar3 /usr/local/bin/rebar && \
-    mix deps.get && \
-    mix compile
-
-RUN cd elixir-ls-${ELIXIRLS_VERSION} && \
-    mkdir /usr/lib/elixir-ls && \
-    mix elixir_ls.release -o /usr/lib/elixir-ls && \
-    echo -e "#!/bin/sh\nexec /usr/lib/elixir-ls/language_server.sh" > "${pkgdir}"/usr/bin/elixir-ls && \
-    echo -e "#!/bin/sh\nexec /usr/lib/elixir-ls/debugger.sh" > "${pkgdir}"/usr/bin/elixir-ls-debug && \
-    chmod +x /usr/bin/elixir-ls /usr/bin/elixir-ls-debug
-
-RUN yarn global add diagnostic-languageserver
-RUN yarn global add "typescript-language-server@${TSSERVER_VERSION}"
-
-RUN git clone https://github.com/sumneko/lua-language-server && \
-    cd lua-language-server && \
-    git checkout tags/${SUMNEKO_LUA_VERSION} && \
-    git submodule init && \
-    for i in ../{bee.lua,love-api,lpeglabel,luamake,rcedit}; do \
-    git config submodule.3rd/${i##../}.url $i; done && \
-    git submodule update && \
-    cd 3rd/luamake && \
-    git submodule init && \
-    git config submodule.3rd/bee.lua.url ../bee.lua && \
-    git submodule update
-
-RUN cd lua-language-server && \
-    ninja -C 3rd/luamake -f compile/ninja/linux.ninja && \
-    ./3rd/luamake/luamake rebuild &> /dev/null
-
-RUN cd lua-language-server && \
-    echo -e '#!/usr/bin/env sh\nTMPPATH=$(mktemp -d "/tmp/lua-language-server.XXXX")\nDEFAULT_LOGPATH="$TMPPATH/log"\nDEFAULT_METAPATH="$TMPPATH/meta"\n\nexec /usr/lib/lua-language-server/lua-language-server -E /usr/share/lua-language-server/main.lua \\\n --logpath="$DEFAULT_LOGPATH" --metapath="$DEFAULT_METAPATH" "$@"' > /usr/bin/lua-language-server && \
-    chmod u+x /usr/bin/lua-language-server && \
-    chown ${USER}:${USER} /usr/bin/lua-language-server && \
-    chgrp ${USER} /usr/bin/lua-language-server && \
-    mkdir -p /usr/lib/lua-language-server /usr/share/lua-language-server && \
-    cp -r bin/Linux/lua-language-server /usr/lib/lua-language-server  && \
-    cp bin/Linux/*.so /usr/lib/lua-language-server && \
-    cp debugger.lua /usr/share/lua-language-server && \
-    cp main.lua /usr/share/lua-language-server && \
-    cp platform.lua /usr/share/lua-language-server && \
-    cp -r locale /usr/share/lua-language-server && \
-    cp -r script /usr/share/lua-language-server && \
-    cp -r meta /usr/share/lua-language-server
 
 WORKDIR /home/${USER}
 
