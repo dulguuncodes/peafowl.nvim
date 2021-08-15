@@ -263,7 +263,10 @@ local constants = {
   left_line_ending_provider = function()
     return symbols.right_arrow
   end,
-  left_line_ending_highlight = {colors.black, colors.bg}
+  left_line_ending_highlight = {colors.black, colors.bg},
+
+  latency_provider = util.get_latency,
+  latency_highlight = {colors.white, colors.black},
 }
 
 return constants

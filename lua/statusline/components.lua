@@ -2,6 +2,11 @@ local colors = require("colors")
 local util = require("statusline.utilities")
 local constants = require("statusline.constants")
 
+local latency = {
+  provider = constants.latency_provider,
+  highlight = constants.latency_highlight
+}
+
 local start_padding = {
   provider = util.spacing,
   highlight = {colors.black, colors.black}
@@ -251,6 +256,9 @@ local components = {
   },
   RightPadding = {
     RightPadding = right_padding
+  },
+  Latency = {
+    Latency = latency
   }
 }
 

@@ -2,49 +2,7 @@ local colors = require("colors")
 local symbols = require("statusline.symbols")
 
 _OPERATING_SYSTEM = nil
-
-local M = {}
-
-M.buffer_not_empty = function()
-  if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
-    return true
-  end
-  return false
-end
-
-M.checkwidth = function()
-  local squeeze_width = vim.fn.winwidth(0) / 2
-  if squeeze_width > 40 then
-    return true
-  end
-  return false
-end
-
---- Checks if current buffer is in a Git repository
-M.check_for_git = function()
-  if buffer_not_empty() and require("galaxyline.condition").check_git_workspace() then
-    return colors.blue
-  end
-  return colors.bg
-end
-
-M.buffer_check = function()
-  if buffer_not_empty() then
-    return colors.fg
-  end
-  return colors.white
-end
-
-M.git_patch = function()
-  if buffer_not_empty() then
-    return check_for_git()
-  end
-  return colors.bg
-end
-
-M.spacing = function()
-  return " "
-end
+_LATENCY = 0
 
 function os.capture(cmd, raw)
   local f = assert(io.popen(cmd, "r"))
@@ -71,6 +29,53 @@ local _get_os_icon = function(os)
   end
 end
 
+local M = {}
+
+M.buffer_not_empty = function()
+  if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
+    return true
+  end
+  return false
+end
+
+M.checkwidth = function()
+  local squeeze_width = vim.fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return true
+  end
+  return false
+end
+
+M.check_for_git = function()
+  if M.buffer_not_empty() and require("galaxyline.condition").check_git_workspace() then
+    return colors.blue
+  end
+  return colors.bg
+end
+
+M.buffer_check = function()
+  if M.buffer_not_empty() then
+    return colors.fg
+  end
+  return colors.white
+end
+
+M.git_patch = function()
+  if M.buffer_not_empty() then
+    return M.check_for_git()
+  end
+  return colors.bg
+end
+
+M.spacing = function()
+  return " "
+end
+
+M.get_latency = function()
+  _LATENCY = _LATENCY + 1
+  return _LATENCY
+end
+
 M.get_operating_system = function()
   if _OPERATING_SYSTEM == nil then
     local separator = package.config:sub(1, 1)
@@ -82,7 +87,7 @@ M.get_operating_system = function()
     end
   end
 
-  return _OPERATING_SYSTEM .. " " .. _get_os_icon(_OPERATING_SYSTEM)
+  return _get_os_icon(_OPERATING_SYSTEM) .. " " .. _OPERATING_SYSTEM
 end
 
 M.split = function(inputstr, sep)
