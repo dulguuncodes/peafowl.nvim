@@ -24,4 +24,3 @@ map.n.nore["<Leader>ca"] = vim.lsp.buf.code_action
 map.n.nore["<Leader>f"] = vim.lsp.buf.formatting
 map.n.nore["<Leader>r"] = vim.lsp.buf.rename
 map.v.nore["<Leader>"] = vim.lsp.buf.range_formatting
-

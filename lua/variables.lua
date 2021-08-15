@@ -3,10 +3,11 @@ local opt = vim.opt
 
 -- sets the leader used in keymaps
 g.mapleader = " "
+
 g.loaded_python_provider = 0
 g.loaded_perl_provider = 0
 g.everforest_background = "hard"
-g.indent_blankline_char = '┆'
+g.indent_blankline_char = "┆"
 g.indent_blankline_show_trailing_blankline_indent = false
 
 g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard", "NvimTree"}
@@ -22,19 +23,19 @@ g.workspace_session_disable_on_args = 1
 g.workspace_disable_on_vimenter = 1
 g.workspace_autosave = 1
 
-g.peafowl_lua_lsp_location = '/usr/local/bin/lua-language-server'
-g.peafowl_lua_lsp_lib = '/usr/local/share/lua-language-server'
+g.peafowl_lua_lsp_location = "/usr/local/bin/lua-language-server"
+g.peafowl_lua_lsp_lib = "/usr/local/share/lua-language-server"
 
-g.peafowl_elixir_lsp_location = '/usr/bin/elixir-ls'
+g.peafowl_elixir_lsp_location = "/usr/bin/elixir-ls"
 g.peafowl_nvim_tree_patch = 1
 
 if g.peafowl_nvim_tree_patch == 1 then
   g.nvim_tree_git_hl = 0
   g.nvim_tree_gitignore = 0
   g.nvim_tree_show_icons = {
-      git = 0,
-      folders = 1,
-      files = 1
+    git = 0,
+    folders = 1,
+    files = 1
   }
 end
 
@@ -42,7 +43,7 @@ end
 g.peafowl_branding = 1
 
 -- coc.nvim extensions
-g.coc_global_extensions = {'coc-discord-rpc', 'coc-markdownlint', 'coc-rust-analyzer'}
+g.coc_global_extensions = {"coc-discord-rpc", "coc-markdownlint", "coc-rust-analyzer"}
 
 opt.expandtab = true
 opt.shiftwidth = 2
@@ -52,4 +53,3 @@ opt.mouse = "a"
 opt.number = true
 opt.encoding = "UTF-8"
 opt.termguicolors = true
-
