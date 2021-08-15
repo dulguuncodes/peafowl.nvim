@@ -5,14 +5,14 @@ _OPERATING_SYSTEM = nil
 
 local M = {}
 
-local M.buffer_not_empty = function()
+M.buffer_not_empty = function()
   if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
     return true
   end
   return false
 end
 
-local M.checkwidth = function()
+M.checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2
   if squeeze_width > 40 then
     return true
@@ -21,21 +21,21 @@ local M.checkwidth = function()
 end
 
 --- Checks if current buffer is in a Git repository
-local M.check_for_git = function()
+M.check_for_git = function()
   if buffer_not_empty() and require("galaxyline.condition").check_git_workspace() then
     return colors.blue
   end
   return colors.bg
 end
 
-local M.buffer_check = function()
+M.buffer_check = function()
   if buffer_not_empty() then
     return colors.fg
   end
   return colors.white
 end
 
-local M.git_patch = function()
+M.git_patch = function()
   if buffer_not_empty() then
     return check_for_git()
   end
@@ -71,7 +71,7 @@ local _get_os_icon = function(os)
   end
 end
 
-local M.get_operating_system = function()
+M.get_operating_system = function()
   if _OPERATING_SYSTEM == nil then
     local separator = package.config:sub(1, 1)
 
@@ -85,7 +85,7 @@ local M.get_operating_system = function()
   return _OPERATING_SYSTEM .. " " .. _get_os_icon(_OPERATING_SYSTEM)
 end
 
-local M.split = function(inputstr, sep)
+M.split = function(inputstr, sep)
   if sep == nil then
     sep = "%s"
   end
