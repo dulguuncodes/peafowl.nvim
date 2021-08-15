@@ -7,7 +7,7 @@ gl.section.left = {components.LeftSpace, components.LeftPadding, components.Logo
                    components.EmptyBuffer, components.MinifiedMetaPadding, components.FileIcon, components.FileName,
                    components.LeftCursorIcon, components.LeftCursorPosition, components.SpaceInBetweenFnameAndCur,
                    components.DiffAdd, components.DiffModified, components.DiffRemoved, components.LeftLineEnding,
-                   components.LSPError, components.LSPWarnings}
+                   components.LSPError, components.LSPWarnings, components.Latency}
 
 if vim.g.peafowl_branding == 1 then
 	gl.section.mid = {components.Branding}
