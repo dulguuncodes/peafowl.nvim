@@ -5,8 +5,8 @@ local g = vim.g
 -- For more info on configuring the LSP: https://github.com/dulguuncodes/peafowl/wiki/LSP
 local servers = {}
 
-local register_servers = function(servers)
-  for lsp_name, lsp_config in pairs(servers) do
+local register_servers = function(_servers)
+  for lsp_name, lsp_config in pairs(_servers) do
     local lsp = lspconfig[lsp_name]
 
     if not lsp then
