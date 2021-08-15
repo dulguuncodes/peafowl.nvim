@@ -81,7 +81,7 @@ return require("packer").startup(
     use "lukas-reineke/indent-blankline.nvim"
     use {
       "RRethy/vim-hexokinase",
-      run = "make hexokinase"
+      run = "make hexokinase" -- NOTE: Making vim-hexokinase requires go
     }
 
     use {
@@ -92,9 +92,7 @@ return require("packer").startup(
       end
     }
 
-    use "airblade/vim-gitgutter"
     use "tpope/vim-fugitive"
-
     use "jiangmiao/auto-pairs"
     use "machakann/vim-highlightedyank"
 
@@ -119,5 +117,14 @@ return require("packer").startup(
     }
 
     use "neovim/nvim-lspconfig"
+
+    use {
+      "Iron-E/nvim-cartographer",
+      config = function()
+        local map = require("cartographer")
+
+        print(map)
+      end
+    }
   end
 )

@@ -14,163 +14,182 @@
 -- given a table, it uses `vim.api.nvim_set_keymap` to create keybinds
 -- @param keymaps any
 function Map(keymaps)
-    for _, keymap in ipairs(keymaps) do
-        vim.api.nvim_set_keymap(keymap.type, keymap.key, keymap.cmd, keymap.opts)
-    end
+  for _, keymap in ipairs(keymaps) do
+    vim.api.nvim_set_keymap(keymap.type, keymap.key, keymap.cmd, keymap.opts)
+  end
 end
 
-local keymaps = {{
-    type = 'n',
-    key = '<Leader>s',
-    cmd = ':Obsess<CR>',
+local keymaps = {
+  {
+    type = "n",
+    key = "<Leader>s",
+    cmd = ":Obsess<CR>",
     opts = {
-        noremap = true,
-        silent = true
+      noremap = true,
+      silent = true
     }
-}, {
-    type = 't',
-    key = '<Leader>s',
-    cmd = '<C-\\><C-n>:Obsess<CR>',
+  },
+  {
+    type = "t",
+    key = "<Leader>s",
+    cmd = "<C-\\><C-n>:Obsess<CR>",
     opts = {
-        noremap = true,
-        silent = true
+      noremap = true,
+      silent = true
     }
-}, {
-    type = 'v',
-    key = '<Leader>y',
+  },
+  {
+    type = "v",
+    key = "<Leader>y",
     cmd = '"+y',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'n',
-    key = '<Leader>Y',
+  },
+  {
+    type = "n",
+    key = "<Leader>Y",
     cmd = '"+yg',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'n',
-    key = '<Leader>y',
+  },
+  {
+    type = "n",
+    key = "<Leader>y",
     cmd = '"+y',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'n',
-    key = '<Leadr>yy',
+  },
+  {
+    type = "n",
+    key = "<Leadr>yy",
     cmd = '"+yy',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'n',
-    key = '<Leader>p',
+  },
+  {
+    type = "n",
+    key = "<Leader>p",
     cmd = '"+p',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'n',
-    key = '<Leader>P',
+  },
+  {
+    type = "n",
+    key = "<Leader>P",
     cmd = '"+p',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'v',
-    key = '<Leader>p',
+  },
+  {
+    type = "v",
+    key = "<Leader>p",
     cmd = '"+p',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'v',
-    key = '<Leader>P',
+  },
+  {
+    type = "v",
+    key = "<Leader>P",
     cmd = '"+p',
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'n',
-    key = '<C-Right>',
-    cmd = ':tabnext<CR>',
+  },
+  {
+    type = "n",
+    key = "<C-Right>",
+    cmd = ":tabnext<CR>",
     opts = {
-        noremap = true,
-        silent = true
+      noremap = true,
+      silent = true
     }
-}, {
-    type = 'n',
-    key = '<C-Left>',
-    cmd = ':tabprev<CR>',
+  },
+  {
+    type = "n",
+    key = "<C-Left>",
+    cmd = ":tabprev<CR>",
     opts = {
-        noremap = true,
-        silent = true
+      noremap = true,
+      silent = true
     }
-}, {
-    type = 'n',
-    key = '<Leader>tr',
+  },
+  {
+    type = "n",
+    key = "<Leader>tr",
     cmd = ":Telescope oldfiles<CR>",
     opts = {
-        noremap = false,
-        silent = true
+      noremap = false,
+      silent = true
     }
-}, {
-    type = 'n',
-    key = '<Leader>tf',
-    cmd = ':Telescope find_files<CR>',
+  },
+  {
+    type = "n",
+    key = "<Leader>tf",
+    cmd = ":Telescope find_files<CR>",
     opts = {
-        noremap = false,
-        silent = true
+      noremap = false,
+      silent = true
     }
-}, {
-    type = 'n',
-    key = '<Leader>tg',
-    cmd = ':Telescope live_grep<CR>',
+  },
+  {
+    type = "n",
+    key = "<Leader>tg",
+    cmd = ":Telescope live_grep<CR>",
     opts = {
-        noremap = false,
-        silent = true
+      noremap = false,
+      silent = true
     }
-}, {
-    type = 'n',
-    key = '<Leader>n',
-    cmd = ':NvimTreeToggle<CR>',
+  },
+  {
+    type = "n",
+    key = "<Leader>n",
+    cmd = ":NvimTreeToggle<CR>",
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-}, {
-    type = 'n',
-    key = '<C-d>',
-    cmd = ':tabnew | Dashboard<CR>',
+  },
+  {
+    type = "n",
+    key = "<C-d>",
+    cmd = ":tabnew | Dashboard<CR>",
     opts = {
-        noremap = true,
-        silent = true
+      noremap = true,
+      silent = true
     }
-}, {
-    type = 'v',
-    key = '<C-d>',
-    cmd = '<C-\\><C-n><Cmd>tabnew | Dashboard<CR>',
+  },
+  {
+    type = "v",
+    key = "<C-d>",
+    cmd = "<C-\\><C-n><Cmd>tabnew | Dashboard<CR>",
     opts = {
-        noremap = true,
-        silent = false
+      noremap = true,
+      silent = false
     }
-  }, {
-    type = 'n',
-    key = '<Leader>ca',
-    cmd = '<Cmd>lua vim.lsp.buf.code_action()<CR>',
+  },
+  {
+    type = "n",
+    key = "<Leader>ca",
+    cmd = "<Cmd>lua vim.lsp.buf.code_action()<CR>",
     opts = {
       noremap = false,
       silent = false
-    },
+    }
   }
 }
 
