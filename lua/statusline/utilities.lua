@@ -2,7 +2,7 @@ local colors = require("colors")
 local symbols = require("statusline.symbols")
 
 _OPERATING_SYSTEM = nil
-_LATENCY = 0
+_REFRESHES = 0
 
 function os.capture(cmd, raw)
   local f = assert(io.popen(cmd, "r"))
@@ -71,9 +71,9 @@ M.spacing = function()
   return " "
 end
 
-M.get_latency = function()
-  _LATENCY = _LATENCY + 1
-  return " Latency: " .. _LATENCY
+M.get_refreshes = function()
+  _REFRESHES = _REFRESHES + 1
+  return "  Refreshes: " .. _REFRESHES
 end
 
 M.get_operating_system = function()

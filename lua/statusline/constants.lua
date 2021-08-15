@@ -265,8 +265,8 @@ local constants = {
   end,
   left_line_ending_highlight = {colors.black, colors.bg},
 
-  latency_provider = util.get_latency,
-  latency_highlight = {colors.white, colors.bg},
+  refreshes_provider = util.get_refreshes,
+  refreshes_highlight = {colors.white, colors.bg},
 }
 
 return constants
