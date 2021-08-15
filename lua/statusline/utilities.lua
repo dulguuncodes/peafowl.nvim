@@ -73,7 +73,7 @@ end
 
 M.get_latency = function()
   _LATENCY = _LATENCY + 1
-  return _LATENCY
+  return " Latency: " .. _LATENCY
 end
 
 M.get_operating_system = function()
