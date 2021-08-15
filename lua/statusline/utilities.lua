@@ -1,5 +1,5 @@
 local colors = require("colors")
-local symbols = require("symbols")
+local symbols = require("statusline.symbols")
 
 _OPERATING_SYSTEM = nil
 
