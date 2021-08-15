@@ -42,7 +42,7 @@ M.git_patch = function()
   return colors.bg
 end
 
-local M.spacing = function()
+M.spacing = function()
   return " "
 end
 
