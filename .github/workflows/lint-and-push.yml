@@ -1,4 +1,4 @@
-name: ci
+name: lint files and push
 
 on:
   push:
