@@ -1,5 +1,3 @@
-local packer = require("packer")
-
 vim.cmd [[packadd dashboard-nvim]]
 
 return require("packer").startup(

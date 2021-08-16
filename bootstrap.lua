@@ -1,12 +1,6 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local timeout = os.getenv("TIMEOUT")
-
-if timeout == nil then
-  timeout = 60
-end
-
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then

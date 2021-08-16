@@ -1,5 +1,4 @@
 local lspconfig = require("lspconfig")
-local g = vim.g
 
 -- A list of Language Servers to work with Neovim
 -- For more info on configuring the LSP: https://github.com/dulguuncodes/peafowl/wiki/LSP
