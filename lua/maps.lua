@@ -27,5 +27,5 @@ map.n.nore["<Leader>r"] = vim.lsp.buf.rename
 map.v.nore["<Leader>f"] = vim.lsp.buf.range_formatting
 map.n.nore["<Leader>h"] = vim.lsp.buf.hover
 
-map.i.nore["<D-b>"] = vim.lsp.buf.completion -- For MacOS users
-map.i.nore["<C-b>"] = vim.lsp.buf.completion
+map.i.nore["<D-d>"] = vim.lsp.buf.completion -- For MacOS users
+map.i.nore["<C-d>"] = vim.lsp.buf.completion
