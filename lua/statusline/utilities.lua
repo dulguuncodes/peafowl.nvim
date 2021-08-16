@@ -1,8 +1,8 @@
 local colors = require("colors")
 local symbols = require("statusline.symbols")
 
-_OPERATING_SYSTEM = nil
-_REFRESHES = 0
+local _OPERATING_SYSTEM = nil
+local _REFRESHES = 0
 
 function os.capture(cmd, raw)
   local f = assert(io.popen(cmd, "r"))
