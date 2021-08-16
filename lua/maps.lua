@@ -24,4 +24,8 @@ map.v.nore.silent["<C-d>"] = "<C-\\><C-n><Cmd>tabnew | Dashboard<CR>"
 map.n.nore["<Leader>ca"] = vim.lsp.buf.code_action
 map.n.nore["<Leader>f"] = vim.lsp.buf.formatting
 map.n.nore["<Leader>r"] = vim.lsp.buf.rename
-map.v.nore["<Leader>"] = vim.lsp.buf.range_formatting
+map.v.nore["<Leader>f"] = vim.lsp.buf.range_formatting
+map.n.nore["<Leader>h"] = vim.lsp.buf.hover
+
+map.i.nore["<D-b>"] = vim.lsp.buf.completion -- For MacOS users
+map.i.nore["<C-b>"] = vim.lsp.buf.completion
