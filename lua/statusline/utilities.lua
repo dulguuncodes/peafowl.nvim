@@ -4,13 +4,10 @@ local symbols = require("statusline.symbols")
 local _OPERATING_SYSTEM = nil
 local _REFRESHES = 0
 
-function os.capture(cmd, raw)
+local _capture = function(cmd)
   local f = assert(io.popen(cmd, "r"))
   local s = assert(f:read("*a"))
   f:close()
-  if raw then
-    return s
-  end
   s = string.gsub(s, "^%s+", "")
   s = string.gsub(s, "%s+$", "")
   s = string.gsub(s, "[\n\r]+", " ")
@@ -81,7 +78,7 @@ M.get_operating_system = function()
     local separator = package.config:sub(1, 1)
 
     if separator == "/" then
-      _OPERATING_SYSTEM = os.capture("uname")
+      _OPERATING_SYSTEM = _capture("uname")
     else
       _OPERATING_SYSTEM = "Windows"
     end
