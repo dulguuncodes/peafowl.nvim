@@ -1,17 +1,12 @@
 # 🦚 - Peafowl
 
-An elegant Neovim configuration focused on customizability and performance.
+![peafowl's official banner](https://raw.githubusercontent.com/dulguuncodes/peafowl/main/img/banner.png)
 
-![golang without it's lsp](./img/banner.png)
+Peafowl is elegant Neovim configuration focused on customizability and performance.
 
 ## Requirements
 
 - Neovim 0.5+
-- lua-language-server (for Lua LSP support) (optional)
-- bash-language-server (for bash LSP support) (optional)
-- graphql-lsp (for GraphQL LSP support) (optional)
-- vscode-html-languageserver (for HTML LSP support) (optional)
-- elixir-ls (for Elixir LSP support) (optional)
 - A Nerd Font installed and configured (preferably `MesloLG Nerd Font`)
 
 ## Installation
