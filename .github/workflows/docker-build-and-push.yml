@@ -6,6 +6,18 @@ on:
       - 'main'
 
 jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Linting
+        uses: nebularg/actions-luacheck@v1
+        with:
+          files: '.'
+          annotate: 'none'
+
   docker:
     runs-on: ubuntu-latest
     steps:
