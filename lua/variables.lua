@@ -41,9 +41,7 @@ end
 
 -- remove this to get rid of branding
 g.peafowl_branding = 1
-
--- coc.nvim extensions
-g.coc_global_extensions = {"coc-discord-rpc", "coc-markdownlint", "coc-rust-analyzer"}
+g.peafowl_developer_mode = 0
 
 opt.expandtab = true
 opt.shiftwidth = 2
