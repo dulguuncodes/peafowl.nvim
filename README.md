@@ -2,7 +2,7 @@
 
 An elegant Neovim configuration focused on customizability and performance.
 
-![golang without it's lsp](./screenshots/golang-without-lsp.png)
+![golang without it's lsp](./img/banner.png)
 
 ## Requirements
 
