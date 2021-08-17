@@ -1,8 +1,10 @@
-# 🦚 - Peafowl
-
 ![peafowl's official banner](https://raw.githubusercontent.com/dulguuncodes/peafowl/main/img/banner.png)
 
-Peafowl is elegant Neovim configuration focused on customizability and performance.
+<p align="center">
+<strong>🦚 Peafowl</strong>
+</p>
+
+Peafowl is an elegant Neovim configuration focused on customizability and performance.
 
 ## Requirements
 
