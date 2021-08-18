@@ -49,7 +49,7 @@ g.dashboard_custom_section = {
     command = "NvimTreeToggle"
   },
   f = {
-    description = {"📚 Toggle Sessions           SPC b"},
+    description = {"  Toggle Sessions           SPC b"},
     command = "Obsess"
   },
   g = {

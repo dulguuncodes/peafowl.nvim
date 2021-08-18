@@ -96,7 +96,6 @@ return require("packer").startup(
 
     use {
       "dulguuncodes/dashboard-nvim",
-      cmd = {"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave"},
       setup = function()
         require("dashboard")
       end

@@ -29,3 +29,4 @@ map.n.nore["<Leader>h"] = vim.lsp.buf.hover
 
 map.i.nore["<D-d>"] = vim.lsp.buf.completion -- For MacOS users
 map.i.nore["<C-d>"] = vim.lsp.buf.completion
+
