@@ -1,5 +1,15 @@
 local map = require("cartographer")
 
+local _has_val = function(table, val)
+  for _, v in ipairs(table) do
+    if v == val then
+      return true
+    end
+  end
+
+  return false
+end
+
 map.n.nore["<SPACE>"] = "<Nop>"
 
 map.n.nore.silent["<Leader>s"] = "<Cmd>Obsess<CR>"
@@ -30,3 +40,10 @@ map.n.nore["<Leader>h"] = vim.lsp.buf.hover
 map.i.nore["<D-d>"] = vim.lsp.buf.completion -- For MacOS users
 map.i.nore["<C-d>"] = vim.lsp.buf.completion
 
+map.n.nore["<Leader>gd"] = vim.lsp.buf.definition
+map.n.nore["<Leader>gr"] = vim.lsp.buf.references
+map.n.nore["<Leader>cr"] = function()
+  if _has_val({"y", "ye", "yes"}, vim.fn.input("Are you sure you want to clear ALL references?\n>"):lower()) then
+    vim.lsp.buf.clear_references()
+  end
+end
