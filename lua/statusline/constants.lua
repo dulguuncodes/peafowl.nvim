@@ -174,10 +174,10 @@ local constants = {
   right_cursor_icon_separator = symbols.left_arrow_separator,
   right_cursor_icon_separator_highlight = {colors.white, colors.black},
   left_cursor_position_provider = function()
-    local line_stat = util.split(fileinfo.line_column(), " :")
+    local line_stat = vim.split(fileinfo.line_column(), " :", true)
 
-    local line_row = line_stat[1]
-    local line_column = line_stat[2]
+    local line_row = line_stat[1]:gsub(" ", "")
+    local line_column = line_stat[2]:gsub(" ", "")
 
     return line_row .. ":" .. line_column .. " "
   end,
@@ -186,10 +186,10 @@ local constants = {
   left_cursor_position_separator = symbols.generic_separator,
   left_cursor_position_separator_highlight = {colors.white, colors.black},
   right_cursor_position_provider = function()
-    local line_stat = util.split(fileinfo.line_column(), " :")
+    local line_stat = vim.split(fileinfo.line_column(), " :", true)
 
-    local line_row = line_stat[1]
-    local line_column = line_stat[2]
+    local line_row = line_stat[1]:gsub(" ", "")
+    local line_column = line_stat[2]:gsub(" ", "")
 
     return line_row .. ":" .. line_column .. " "
   end,
@@ -264,9 +264,9 @@ local constants = {
     return symbols.right_arrow
   end,
   left_line_ending_highlight = {colors.black, colors.bg},
-
   refreshes_provider = util.get_refreshes,
-  refreshes_highlight = {colors.white, colors.bg},
+  refreshes_highlight = {colors.white, colors.bg}
 }
 
 return constants
+

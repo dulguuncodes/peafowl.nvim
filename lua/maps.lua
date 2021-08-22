@@ -1,17 +1,6 @@
 local map = require("cartographer")
 
-local _has_val = function(table, val)
-  for _, v in ipairs(table) do
-    if v == val then
-      return true
-    end
-  end
-
-  return false
-end
-
 map.n.nore["<SPACE>"] = "<Nop>"
-
 map.n.nore.silent["<Leader>s"] = "<Cmd>Obsess<CR>"
 
 map.v.nore["<Leader>y"] = '"+y'
@@ -34,7 +23,6 @@ map.v.nore.silent["<C-d>"] = "<C-\\><C-n><Cmd>tabnew | Dashboard<CR>"
 map.n.nore["<Leader>ca"] = vim.lsp.buf.code_action
 map.n.nore["<Leader>f"] = vim.lsp.buf.formatting
 map.n.nore["<Leader>r"] = vim.lsp.buf.rename
-map.v.nore["<Leader>f"] = vim.lsp.buf.range_formatting
 map.n.nore["<Leader>h"] = vim.lsp.buf.hover
 
 map.i.nore["<D-d>"] = vim.lsp.buf.completion -- For MacOS users
@@ -45,14 +33,6 @@ map.n.nore["<Leader>gr"] = vim.lsp.buf.references
 map.n.nore["<Leader>gt"] = vim.lsp.buf.type_definition
 map.n.nore["<Leader>gi"] = vim.lsp.buf.implementation
 
-map.n.nore["<Leader>ac"] = function()
-  for i, v in ipairs(vim.lsp.get_active_clients()) do
-    print(v)
-  end
-end
+map.n.nore["<Leader>li"] = "<Cmd>LspInfo<CR>"
 
-map.n.nore["<Leader>cr"] = function()
-  if _has_val({"y", "ye", "yes"}, vim.fn.input("Are you sure you want to clear ALL references?\n>"):lower()) then
-    vim.lsp.buf.clear_references()
-  end
-end
+
