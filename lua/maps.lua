@@ -13,6 +13,11 @@ map.n.nore.silent["<C-Left>"] = "<Cmd>tabprev<CR>"
 map.n.nore.silent["<Leader>tr"] = "<Cmd>Telescope oldfiles<CR>"
 map.n.nore.silent["<Leader>tf"] = "<Cmd>Telescope find_files<CR>"
 map.n.nore.silent["<Leader>tg"] = "<Cmd>Telescope live_grep<CR>"
+map.n.nore.silent["<Leader>tc"] = "<Cmd>Telescope git_commits<CR>"
+map.n.nore.silent["<Leader>gb"] = "<Cmd>Telescoep git_branches<CR>"
+map.n.nore.silent["<Leader>ff"] = "<Cmd>Telescope current_buffer_fuzzy_find<CR>"
+map.n.nore.silent["<Leader>fb"] = "<Cmd>Telescope buffers<CR>"
+-- And more!
 
 map.n.nore["<Leader>n"] = "<Cmd>NvimTreeToggle<CR>"
 map.v.nore["<Leader>n"] = "<C-\\><C-n><Cmd>NvimTreeToggle<CR>"
@@ -34,5 +39,3 @@ map.n.nore["<Leader>gt"] = vim.lsp.buf.type_definition
 map.n.nore["<Leader>gi"] = vim.lsp.buf.implementation
 
 map.n.nore["<Leader>li"] = "<Cmd>LspInfo<CR>"
-
-
