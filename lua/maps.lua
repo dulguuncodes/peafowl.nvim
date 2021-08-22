@@ -42,6 +42,15 @@ map.i.nore["<C-d>"] = vim.lsp.buf.completion
 
 map.n.nore["<Leader>gd"] = vim.lsp.buf.definition
 map.n.nore["<Leader>gr"] = vim.lsp.buf.references
+map.n.nore["<Leader>gt"] = vim.lsp.buf.type_definition
+map.n.nore["<Leader>gi"] = vim.lsp.buf.implementation
+
+map.n.nore["<Leader>ac"] = function()
+  for i, v in ipairs(vim.lsp.get_active_clients()) do
+    print(v)
+  end
+end
+
 map.n.nore["<Leader>cr"] = function()
   if _has_val({"y", "ye", "yes"}, vim.fn.input("Are you sure you want to clear ALL references?\n>"):lower()) then
     vim.lsp.buf.clear_references()
