@@ -13,6 +13,14 @@ return require("packer").startup(
     }
 
     use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("trouble").setup{}
+      end
+    }
+
+    use {
       "hrsh7th/nvim-compe",
       config = function()
         require "compe".setup {
@@ -61,7 +69,13 @@ return require("packer").startup(
 
     use {
       "kyazdani42/nvim-tree.lua",
-      cmd = "NvimTreeToggle"
+      config = function()
+        require 'nvim-tree'.setup {
+          git ={
+            ignore = vim.g.peafowl_nvim_tree_gitignore
+          },
+        }
+      end
     }
 
     use {
@@ -121,5 +135,22 @@ return require("packer").startup(
         require("maps")
       end
     }
+
+    use {
+      "folke/zen-mode.nvim",
+      config = function()
+        require("zen-mode").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
+
+    use 'shaunsingh/nord.nvim'
+    use 'bfredl/nvim-luadev'
+    use 'rcarriga/nvim-notify'
+
+    use_rocks 'LuaFileSystem'
   end
 )

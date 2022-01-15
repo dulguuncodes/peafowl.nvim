@@ -27,12 +27,15 @@ g.peafowl_lua_lsp_location = "/usr/local/bin/lua-language-server"
 g.peafowl_lua_lsp_lib = "/usr/local/share/lua-language-server"
 
 g.peafowl_elixir_lsp_location = "/usr/bin/elixir-ls"
-g.peafowl_nvim_tree_patch = 1
+g.peafowl_nvim_tree_patch = 0
+
+g.peafowl_nvim_tree_gitignore = 1
+g.peafowl_nvim_tree_git_hl = 1
 
 if g.peafowl_nvim_tree_patch == 1 then
-  g.nvim_tree_git_hl = 0
-  g.nvim_tree_gitignore = 0
-  g.nvim_tree_show_icons = {
+  g.peafowl_nvim_tree_git_hl = 0
+  g.peafowl_nvim_tree_gitignore = 0
+  g.peafowl_nvim_tree_show_icons = {
     git = 0,
     folders = 1,
     files = 1
