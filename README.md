@@ -1,4 +1,4 @@
-![peafowl's official banner](https://raw.githubusercontent.com/dulguuncodes/peafowl/main/img/banner.png)
+![peafowl's official banner](https://raw.githubusercontent.com/dulguuncodes/peafowl.nvim/main/img/banner.png)
 
 <p align="center">
 <strong>🦚 Peafowl</strong>
